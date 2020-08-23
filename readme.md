@@ -1,1 +1,1 @@
-jkh
+Algolia instant search Angular
