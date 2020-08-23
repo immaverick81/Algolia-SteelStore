@@ -1,0 +1,72 @@
+<div class="container-fluid"  >
+    <div class="row">
+        <div class="col-md-12 my-2">
+            <div class="text-center discounttext" data-aos="fade-down" data-aos-duration="900">
+                Get <span class="font-weight-bold">$1000 Discount</span> on your first Order
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="header py-3" *ngIf="isHomeRoute()"  >
+    <div class="container">
+        <div class="row d-flex justify-content-between align-items-center m-0">
+            <div class="logo" routerLink="/" routerLinkActive="active">
+                <img   data-aos="fade-up" data-aos-duration="900" src="../../../assets/images/eoxs copy.svg" alt="" />
+            </div>
+            <div class="nav"  data-aos="fade-up" data-aos-duration="900">
+                <ul type="none" class="d-flex">
+                    <li routerLink="/about-us" routerLinkActive="active">
+                        About
+                    </li>
+                    <li routerLink="/blogs" routerLinkActive="active">
+                        Blog
+                    </li>
+                    <li routerLink="/steel" routerLinkActive="active">
+                        Products
+                    </li>
+                    <li routerLink="/contact-us" routerLinkActive="active">
+                        Contact Us
+                    </li>
+                </ul>
+            </div>
+            <div class="signin" data-aos="fade-up" data-aos-duration="900">
+                <label class=" mb-0 mr-2"> Sign In</label>
+                <div class="d-inline  border"></div>
+                <label class=" mb-0 ml-2">Sign Up</label>
+                <button class="invetorybtn ml-3">List Inventory</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="header2 py-3 " *ngIf="isnotHomeRoute()"  data-aos="fade-up" data-aos-duration="900" >
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-between align-items-center m-0">
+            <div class="logo" routerLink="/" routerLinkActive="active">
+                <img src="../../../assets/images/eoxs copy.svg" alt="" />
+            </div>
+            <div class="nav">
+                <ul type="none" class="d-flex">
+                    <li routerLink="/about-us" routerLinkActive="active">
+                        About
+                    </li>
+                    <li routerLink="/blogs" routerLinkActive="active">
+                        Blog
+                    </li>
+                    <li routerLink="/steel" routerLinkActive="active">
+                        Products
+                    </li>
+                    <li routerLink="/contact-us" routerLinkActive="active">
+                        Contact Us
+                    </li>
+                </ul>
+            </div>
+            <div class="signin">
+                <label class=" mb-0 mr-2"> Sign In</label>
+                <div class="d-inline  border"></div>
+                <label class=" mb-0 ml-2">Sign Up</label>
+                <button class="invetorybtn ml-3">List Inventory</button>
+            </div>
+        </div>
+    </div>
+</section>

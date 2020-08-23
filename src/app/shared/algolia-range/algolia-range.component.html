@@ -1,0 +1,29 @@
+<div *ngIf="state.range">
+  <ng5-slider
+    [(value)]="state.start[0]"
+    [(highValue)]="state.start[1]"
+    [options]="{ ceil: state.range.max, floor: state.range.min, step: 0.00001 }"
+    (userChangeEnd)="state.refine([$event.value, $event.highValue])"
+    style="font-size: 12px;"
+  ></ng5-slider>
+  <div class="d-flex justify-content-between">
+    <input
+      class="form-control"
+      [value]="state.start[0] === state.range.min ? '' : from.value"
+      style="width: 110px; margin-top: 5px; border-radius: 2px;"
+      type="number"
+      placeholder="From"
+      #from
+      (keyup)="state.refine([from.value, to.value])"
+    />
+    <input
+      class="form-control"
+      [value]="state.start[1] === state.range.max ? '' : to.value"
+      style="width: 110px; float: right; margin-top: 5px; border-radius: 2px;"
+      type="number"
+      placeholder="To"
+      #to
+      (keyup)="state.refine([from.value, to.value])"
+    />
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<app-productfilters></app-productfilters>
+
+<section class="producttable">
+  <div class="container">
+    <div class="row mt-5 pt-3 mb-4">
+      <div class="col-md-12">
+        <div class="table-responsive bordergh crochet p-3">
+          <table class="table">
+            <ais-instantsearch [config]="config">
+              <ais-hits>
+                <ng-template let-hits="hits">
+                  <tr>
+                    <th>Product ID</th>
+                    <th>Product</th>
+                    <th>Quality</th>
+                    <th>Thickness(in)</th>
+                    <th>Width(in)</th>
+                    <th>Weight(in)</th>
+                    <th>PIW</th>
+                    <th>Location</th>
+                    <th>Coilnumber</th>
+                    <th>Action</th>
+                  </tr>
+                  <tr *ngFor="let elements of hits">
+                    <td>TSS{{ elements.objectID }}</td>
+                    <td>{{ elements.PRODUCT || "N/A" }}</td>
+                    <td>{{ elements.QUALITY || "N/A" }}</td>
+                    <td>{{ elements.THICKNESS_IN + 0.002 || "N/A" }}</td>
+                    <td>{{ elements.WIDTH_IN + 1 || "N/A" }}</td>
+                    <td>{{ elements.WEIGHT_LB + 1240 || "N/A" }}</td>
+                    <td>{{ elements.PIW || "N/A" }}</td>
+                    <td>{{ elements.LOCATION || "N/A" }}</td>
+                    <td>{{ elements.COILNUMBER || "N/A" }}</td>
+                    <td>
+                      <div class="enquiry-btn">
+                        <button class="btn">Enquiry</button>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </ais-hits>
+              <div id="pagination">
+                <ais-pagination></ais-pagination>
+              </div>
+            </ais-instantsearch>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+
+@font-face {
+  font-family: VAGRounded;
+  src: url(./assets/font/VAG-Rounded-Std-Light_47298.ttf);
+}
+@font-face {
+  font-family: VGARoundedThin;
+  src: url(./assets/font/VAG-Rounded-Std-Thin_47299.ttf);
+}
+@font-face {
+  font-family: VAGRoundedBT;
+  src: url(./assets/font/VAG-Rounded-Std-Bold_47297.ttf);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: VGARoundedThin;
+}
+
+:focus {
+  outline: none;
+}
+
+.carousel-indicators li {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 21px;
+  border-top: unset;
+  border-bottom: unset;
+}
+.settext {
+  .owl-stage {
+    padding-bottom: 250px;
+  }
+}
+.banner {
+  .carousel-indicators {
+    bottom: 80px;
+  }
+}
+
+
+
+.producttable {
+  .headtext {
+      font-family: VAGRounded;
+      font-size: 52px;
+      font-weight: 300;
+      letter-spacing: 2.08px;
+      color: #3e3e3e;
+  }
+  .bordergh {
+      // background-image: url(../../../../assets/images/tableborder.png);
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      border: 15px solid transparent;
+      border-image: url(/assets/images/tableborder.png) 9 round;
+  }
+  table {
+      border-collapse: collapse;
+      tr,
+      th,
+      td {
+          border: none;
+      }
+      tr {
+          vertical-align: middle;
+          th {
+              vertical-align: middle;
+              text-align: center;
+              font-family: VAGRounded;
+              font-size: 18px;
+              font-weight: 300;
+              letter-spacing: 0.72px;
+              color: #36bebe;
+          }
+          td {
+              vertical-align: middle;
+              text-align: center;
+              font-family: VAGRounded;
+              font-size: 13px;
+              font-weight: 300;
+              letter-spacing: 0.72px;
+              color: rgba(62, 62, 62, 0.7);
+          }
+      }
+      tr:nth-child(even) {
+          background: #f9f9f9
+      }
+  }
+}
+
+.detail-tab{
+
+
+  .mat-tab-label-active{
+    border-radius: 5px;
+    background-color: #ebebeb;
+    opacity: 1;
+  
+  }
+  .mat-tab-label{
+    font-family: VAGRounded;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.94px;
+    color: #1c1c1c;
+  opacity: 1;
+  
+  }
+  .mat-tab-nav-bar, .mat-tab-header{
+    border: none
+  }
+  .mat-expansion-panel:not([class*=mat-elevation-z]){
+    box-shadow: none;
+  }
+  .mat-expansion-panel-header-title{
+    font-family: VAGRounded;
+    font-size: 20.5px;
+    font-weight: 300;
+    letter-spacing: 0.82px;
+    color: #1c1c1c;
+  }
+}
+
+.enquiry-btn{
+  border-radius: 5px;
+  border: solid 1px #d5d5d5;
+  background-color: #41c2c2;
+  font-size: 11.5px;
+  font-weight: 600;
+  
+  line-height: 3.39;
+  letter-spacing: 0.46px;
+.btn{
+
+  color: #ffffff!important;
+}
+}

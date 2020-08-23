@@ -1,0 +1,38 @@
+<section class="productheader">
+  <div class="container ">
+    <div class="row py-5">
+      <div class="col-md-12 py-5"  data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1500" >
+        <h3 class=" text-capitalize">{{productname}} Steel & Material</h3>
+        <!-- <h3>Galvalume Steel & Material</h3> -->
+      </div>
+    </div>
+    <div class="row">
+
+        <ul type="none" class="d-flex"  data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500">
+            <li *ngFor="let elements of routetab">
+                <a routerLink="{{elements.routes}}" routerLinkActive="active" class="pro-btn ">                
+                    <div>
+                        <span class="d-block">{{elements.tabname}}</span>
+                    <span class="d-block steel-txt">Steel Coil</span>
+                    </div>
+                </a>   
+            </li>
+           
+        </ul>
+       
+      
+    </div>
+  </div>
+</section>
+
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<app-contactus></app-contactus>
+

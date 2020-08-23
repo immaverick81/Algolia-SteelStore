@@ -1,0 +1,35 @@
+<section class="banner">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12 py-5">
+                <div class="">
+                    <h3>Frequently Asked Question</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="text">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="w-100" src="../../../assets/images/FAQs-Cont.png">
+            </div>
+
+            <div class="col-md-6 mt-5">
+                <mat-expansion-panel *ngFor="let faq of faqlist">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{faq.title}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <hr>
+                    <b class="text1">{{faq.description}}</b><br><br>
+                    <p>{{faq.descriptiondetail}} </p>
+                </mat-expansion-panel>
+            </div>
+
+        </div>
+    </div>
+</div>

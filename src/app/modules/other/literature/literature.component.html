@@ -1,0 +1,665 @@
+<section class="literature">
+  <div class="container py-5">
+    <div class="row py-5">
+      <div class="col-md-12">
+        <h3>
+          Literature
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <div class="rouded-circle">
+          Chart
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="literature-des ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 text-center">
+        <div class="lit-tabs" (click)="showsteelgauchart()"  [ngClass]="steelgauchart ? 'bordermark' : 'removeborder'">
+          Steel Sheet Designations
+        </div>
+        <div class="lit-tabs" (click)="showgauchart()"  [ngClass]="gaugechart ? 'bordermark' : 'removeborder'">
+          Gauge Chart - Hot, P&O, Cold Coil
+        </div>
+        <div class="lit-tabs" (click)="showstandardchem()" [ngClass]="standardchem ? 'bordermark' : 'removeborder'">
+          Standard Chemistries
+        </div>
+        <div class="lit-tabs" (click)="showmechanprop()" [ngClass]="mechanprop ? 'bordermark' : 'removeborder'">
+          Typical Mechanical Properties
+        </div>
+        <div class="lit-tabs" (click)="showreqmechanicalpro()" [ngClass]="reqmechanicalpro ? 'bordermark' : 'removeborder'">
+          SAE J2340 High-Strength Low Alloy
+          Required Mechanical Properties
+        </div>
+        <div class="lit-tabs" (click)="showosionchart()" [ngClass]="osionchart ? 'bordermark' : 'removeborder'" >
+          Olson Chart
+        </div>
+        <div class="lit-tabs" (click)="showweightconv()" [ngClass]="weightconv ? 'bordermark' : 'removeborder'">
+          Coating Weight Conversion
+        </div>
+        <div class="lit-tabs" (click)="showmetricconver()" [ngClass]="metricconver ? 'bordermark' : 'removeborder'">
+          Metric Conversions
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="steelgauchart">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+
+          <div class="pt-4">
+            <h4>Deep Drawing Steel – DDS (Cold Rolled and Galvanized)</h4>
+            <p>DDS, Carbon .06% max. (CR)DDS, Type A .06% max. (GV)DDS, Type C .02% max. (GV) but allows Phos .020% to .100%</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="gaugechart">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="standardchem">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="mechanprop">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="reqmechanicalpro">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="osionchart">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="weightconv">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7" *ngIf="metricconver">
+        <div class="lit-content">
+          <div>
+            <h4>Commercial Steel – CS (Hot Rolled, Cold Rolled, and Galvanized)</h4>
+            <p>CS Type A, Carbon .10% max., allows use of ultra-low carbon CS Type B, Carbon .02% to .15% CS Type C,
+              Carbon .08% max., allows use
+              of ultra-low carbon but also higher phosphorus levels. CS (No Type), Carbon .16% to .25% max. *These
+              specifications replace the former Commercial Quality Grades. HR only (A659)</p>
+          </div>
+          <div class="w-75 atm-spec">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  ASTM Specifications
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+              <div class="accord-des p-3">
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-4">
+                    <label>Specification</label>
+                  </div>
+                  <div class="col-md-4">
+                    <hr class="w-100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label>General</label>
+                  </div>
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

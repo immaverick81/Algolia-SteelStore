@@ -1,0 +1,77 @@
+.discounttext {
+  font-family: VAGRounded;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 4.94px;
+  color: #4bc8c8;
+}
+.header,
+.header2 {
+  background: url(../../../assets/images/Header.png);
+  display: flex;
+  align-items: center;
+  background-repeat: none;
+  background-size: cover;
+
+  .nav {
+    margin-left: 168px;
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        cursor: pointer;
+        margin: 0 20px;
+        font-family: VAGRounded;
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: 0.64px;
+        color: #3f3f3f;
+      }
+    }
+  }
+  .signin {
+    font-family: VAGRounded;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.64px;
+    color: #3e3e3e;
+    .border {
+      border-right: 1px solid #3e3e3e !important;
+    }
+  }
+  .invetorybtn {
+    height: 41px;
+    border-radius: 10px;
+    border: solid 1px #1c1c1c;
+    font-family: VAGRounded;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.64px;
+    color: #3e3e3e;
+    background: #c2fbf7;
+  }
+}
+
+.logo{
+  cursor: pointer;
+}
+// .invetorybtn {
+//   height: 41px;
+//   border-radius: 10px;
+//   border: solid 1px #1c1c1c;
+//   font-family: VAGRounded;
+//   font-size: 16px;
+//   font-weight: 300;
+
+//   letter-spacing: 0.64px;
+
+//   color: #3e3e3e;
+//   background: #c2fbf7;
+// }
+
+.header2 {
+  background: unset;
+  .invetorybtn {
+    background: unset;
+  }
+}

@@ -1,0 +1,53 @@
+.info {
+  width: 20%;
+  margin: 0 4px;
+  background: #000000;
+  border-radius: 2px;
+  padding: 16px;
+  color: white;
+}
+
+.icon {
+  float: left;
+  color: white;
+}
+.footerlinks {
+  div {
+    cursor: pointer;
+    .text{
+        font-family: VAGRounded;
+    font-size: 16px;
+    font-weight: 300;
+
+  
+    color: rgba(36, 36, 36, 0.5);
+    }
+  }
+}
+.linkfot{
+    li {
+        width: 20%;
+        font-family: VAGRounded;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 300;
+    
+      
+        color: rgba(36, 36, 36, 0.5);
+    }
+   
+}
+.copyright{
+    opacity: 0.5;
+    font-family: VAGRounded;
+    font-size: 16px;
+    font-weight: 300;
+ 
+    color: rgba(36, 36, 36, 0.5);
+}
+.icons{
+    li{
+        padding: 30px;
+        cursor: pointer;
+    }
+}

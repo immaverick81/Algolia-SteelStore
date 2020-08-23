@@ -1,0 +1,79 @@
+.testomonial {
+    background-image: url("/assets/images/bgblavk.png");
+    background-size: cover;
+    h4 {
+        font-size: 22px;
+    }
+    .padddes {
+        max-width: 229px;
+        margin: 0 auto;
+        padding: 33px;
+        label {
+            cursor: pointer;
+        }
+    }
+    .bordermark {
+        border: 10px solid transparent;
+        border-image: url(/assets/images/boder2.png);
+        /* height: 148px; */
+        /* border-image-slice: 26; */
+        border-image-slice: 63;
+        border-image-width: 65px;
+    }
+}
+
+.testomonial2 {
+    h3 {
+        font-family: VAGRounded;
+        font-size: 52px;
+        font-weight: 300;
+        letter-spacing: 2.08px;
+        color: #3e3e3e;
+    }
+    .imgbg {
+        width: 321px;
+        height: 274px;
+        position: relative;
+        img {
+            position: absolute;
+            opacity: 1;
+        }
+    }
+    .testtext {
+        z-index: 99;
+        position: absolute;
+        top: 125px;
+        left: 85px;
+        max-width: 300px;
+        
+        h4 {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.55;
+            color: #727272;
+        }
+        p {
+            font-size: 17px;
+            line-height: 1.65;
+            color: #727272;
+        }
+        .name {
+            font-size: 19.5px;
+            font-weight: 600;
+            letter-spacing: 0.78px;
+            color: #727272;
+        }
+        img {
+            height: 70px;
+            width: 70px
+        }
+    }
+}
+
+.viewbtn {
+    font-family: VAGRounded;
+    font-size: 20.5px;
+    font-weight: 300;
+    letter-spacing: 0.82px;
+    color: #5bd8d8;
+}

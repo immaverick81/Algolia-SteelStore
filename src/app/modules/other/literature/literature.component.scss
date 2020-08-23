@@ -1,0 +1,95 @@
+.literature {
+    background: url("../../../../assets/images/literaturebg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    h3 {
+        font-family: VAGRounded;
+        font-size: 67.5px;
+        font-weight: 300;
+
+        letter-spacing: 2.7px;
+        text-align: left;
+        color: #1c1c1c;
+    }
+    .rouded-circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        border-radius: 50%;
+        width: 255px;
+        height: 255px;
+        top: -84px;
+        box-shadow: -2.1px -7.7px 10px 0 rgba(0, 0, 0, 0.32);
+        background-color: #5bd8d8;
+        font-family: VAGRounded;
+        font-size: 44px;
+        font-weight: 300;
+        letter-spacing: 1.76px;
+        color: #1a1a1a;
+    }
+}
+
+.literature-des {
+    margin-top: 180px;
+    .lit-tabs {
+        border-radius: 5px;
+        border: solid 2px #ebebeb;
+        background-color: #ffffff;
+        cursor: pointer;
+        text-align: center !important;
+        padding: 10px;
+        margin: 10px;
+        opacity: 0.66;
+        font-family: VAGRounded;
+        font-size: 19.5px;
+        font-weight: 300;
+        letter-spacing: 0.78px;
+        text-align: left;
+        color: rgba(28, 28, 28, 0.66);
+    }
+    .lit-content {
+        padding: 10px;
+        .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+            box-shadow: none;
+        }
+
+        h4 {
+            font-family: VAGRounded;
+            font-size: 24.5px;
+
+            letter-spacing: 0.98px;
+            color: #1c1c1c;
+        }
+        p {
+            font-family: VAGRounded;
+            font-size: 18px;
+
+            line-height: 1.5;
+            letter-spacing: normal;
+            color: #838383;
+        }
+        mat-panel-title {
+            font-family: VAGRounded;
+            font-size: 18px;
+
+            letter-spacing: 0.72px;
+            text-align: left;
+            color: #41c2c2;
+        }
+        .accord-des {
+            border-radius: 5px;
+            border: solid 2px #ebebeb;
+            background-color: #ffffff;
+            font-family: VAGRounded;
+            font-size: 18px;
+
+            color: #838383;
+        }
+    }
+    
+}
+
+.bordermark{
+    background-color: #5bd8d8!important;
+}
