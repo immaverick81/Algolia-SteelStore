@@ -1,8 +1,12 @@
 import { Component, OnInit, Inject, forwardRef, Input } from '@angular/core';
-import { BaseWidget, NgAisInstantSearch } from 'angular-instantsearch';
-import { connectRange } from 'instantsearch.js/es/connectors';
-import { ChangeContext } from 'ng5-slider';
 
+import { BaseWidget, NgAisInstantSearch } from 'angular-instantsearch';
+
+import { connectRange } from 'instantsearch.js/es/connectors';
+
+import { ChangeContext, Options } from 'ng5-slider';
+
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-algolia-range',
   templateUrl: './algolia-range.component.html',
@@ -17,6 +21,13 @@ export class AlgoliaRangeComponent extends BaseWidget {
     widgetParams: object;
   };
 
+  value: number = 40;
+  highValue: number = 60;
+  options: Options = {
+    floor: 0,
+    ceil: 100,
+  };
+
   constructor(
     @Inject(forwardRef(() => NgAisInstantSearch))
     public instantSearchParent
@@ -25,6 +36,8 @@ export class AlgoliaRangeComponent extends BaseWidget {
   }
 
   ngOnInit() {
+    console.log(this.instantSearchParent);
+    console.log(this.state);
     this.createWidget(connectRange, {
       // instance options
       attribute: this.attributeType,

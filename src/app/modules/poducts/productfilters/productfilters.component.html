@@ -1,316 +1,323 @@
+<!-- <ais-search-box></ais-search-box>
+
+<ais-range-input
+  attribute="PIW"
+  [min]="100"
+  [max]="500"
+  [precision]="4"
+></ais-range-input> -->
+
 <section class="my-4 filter">
-  <ais-instantsearch [config]="config">
-    <ais-hits>
-      <ng-template let-hits="hits">
-        <ng-container *ngFor="let hit of hits">
-          <!-- {{ hit | json }} -->
-        </ng-container>
-      </ng-template>
-    </ais-hits>
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Thickness
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Thickness
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <!-- <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider> -->
+              <app-algolia-range attributeType="WEIGHT_LB"></app-algolia-range>
             </div>
-          </div>
-        </div>
-
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1800"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Width
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <ais-range-input
+                  attribute="PIW"
+                  [min]="100"
+                  [max]="500"
+                  [precision]="4"
+                ></ais-range-input>
+                <!-- <input type="number" name="" id="" class="form-control" /> -->
               </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="2000"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Weight
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="2500"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Quality
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row my-4" *ngIf="morefilter">
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="3000"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Grade
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Coating
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Black
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-3"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
-          <div ngbDropdown class="d-inline-block w-100">
-            <button
-              class="btn form-control btn-filter"
-              id="dropdownBasic1"
-              ngbDropdownToggle
-            >
-              Paint Vedor
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
-              <div class="p-4">
-                <ng5-slider
-                  [(value)]="value"
-                  [(highValue)]="highValue"
-                  [options]="options"
-                ></ng5-slider>
-              </div>
-              <div class="d-flex justify-content-between p-4">
-                <div class="mr-3">
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
-                <div>
-                  <input type="number" name="" id="" class="form-control" />
-                </div>
+              <div>
+                <!-- <input type="number" name="" id="" class="form-control" /> -->
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row pt-5 mt-4">
-        <div class="col-md-12 justify-content-center d-flex">
-          <div class="mr-3">
-            <a
-              class="clear-filter"
-              data-aos="fade-up"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              >Clear filter</a
-            >
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1800"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Width
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
           </div>
-          <div>
-            <a
-              class="more-filter"
-              data-aos="fade-up"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              *ngIf="!morefilter"
-              (click)="showmorefilters()"
-              >More filters</a
-            >
-            <a
-              class="more-filter"
-              data-aos="fade-up"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              *ngIf="morefilter"
-              (click)="lessfilters()"
-              >Less filters</a
-            >
+        </div>
+      </div>
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="2000"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Weight
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="2500"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Quality
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </ais-instantsearch>
+    <div class="row my-4" *ngIf="morefilter">
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="3000"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Grade
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Coating
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Black
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-3"
+        data-aos="fade-up"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
+        <div ngbDropdown class="d-inline-block w-100">
+          <button
+            class="btn form-control btn-filter"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Paint Vedor
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
+            <div class="p-4">
+              <ng5-slider
+                [(value)]="value"
+                [(highValue)]="highValue"
+                [options]="options"
+              ></ng5-slider>
+            </div>
+            <div class="d-flex justify-content-between p-4">
+              <div class="mr-3">
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+              <div>
+                <input type="number" name="" id="" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-5 mt-4">
+      <div class="col-md-12 justify-content-center d-flex">
+        <div class="mr-3">
+          <a
+            class="clear-filter"
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            >Clear filter</a
+          >
+        </div>
+        <div>
+          <a
+            class="more-filter"
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            *ngIf="!morefilter"
+            (click)="showmorefilters()"
+            >More filters</a
+          >
+          <a
+            class="more-filter"
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            *ngIf="morefilter"
+            (click)="lessfilters()"
+            >Less filters</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

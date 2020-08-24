@@ -25,31 +25,33 @@ import { HotrollComponent } from './hotroll/hotroll.component';
 import { ListingComponent } from './listing/listing.component';
 import { ProductfiltersComponent } from './productfilters/productfilters.component';
 import { ProductmainwraaperComponent } from './productmainwraaper/productmainwraaper.component';
+import { MenuSelectComponent } from 'src/app/shared/algolia-menu-select/algolia-menu-select.component';
 
 @NgModule({
-	declarations: [
-		ProductmainwraaperComponent,
-		GalvanizedComponent,
-		GalvalumeComponent,
-		HotrollComponent,
-		ColdRollComponent,
-		ElectrogalvanizedComponent,
-		GalvalenalComponent,
-		ProductfiltersComponent,
-		DetailsComponent,
-		AlgoliaRangeComponent,
-		ListingComponent
-	],
-	imports: [
-		CommonModule,
-		SharedModule,
-		PoductsRoutingModule,
-		NgbModule,
-		MatTabsModule,
-		Ng5SliderModule,
-		MatExpansionModule,
-		NgAisModule
-	],
-	providers: [ NgAisInstantSearch ]
+  declarations: [
+    ProductmainwraaperComponent,
+    GalvanizedComponent,
+    GalvalumeComponent,
+    HotrollComponent,
+    ColdRollComponent,
+    ElectrogalvanizedComponent,
+    GalvalenalComponent,
+    ProductfiltersComponent,
+    DetailsComponent,
+    AlgoliaRangeComponent,
+    ListingComponent,
+    MenuSelectComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    PoductsRoutingModule,
+    NgbModule,
+    MatTabsModule,
+    Ng5SliderModule,
+    MatExpansionModule,
+    NgAisModule,
+  ],
+  providers: [NgAisInstantSearch],
 })
 export class PoductsModule {}
