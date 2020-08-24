@@ -28,7 +28,7 @@
             <div class="p-4">
               <app-algolia-range attributeType="THICKNESS_IN"></app-algolia-range>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@
           </button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
             <div class="p-4">
-              <app-algolia-range attributeType="PIW"></app-algolia-range>
+              <app-algolia-toggle attributeType="QUALITY"></app-algolia-toggle>
             </div>
           </div>
         </div>
@@ -114,19 +114,7 @@
           </button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="w-100">
             <div class="p-4">
-              <ng5-slider
-                [(value)]="value"
-                [(highValue)]="highValue"
-                [options]="options"
-              ></ng5-slider>
-            </div>
-            <div class="d-flex justify-content-between p-4">
-              <div class="mr-3">
-                <input type="number" name="" id="" class="form-control" />
-              </div>
-              <div>
-                <input type="number" name="" id="" class="form-control" />
-              </div>
+              <app-algolia-toggle attributeType="GRADE"></app-algolia-toggle>
             </div>
           </div>
         </div>
@@ -235,13 +223,15 @@
     <div class="row pt-5 mt-4">
       <div class="col-md-12 justify-content-center d-flex">
         <div class="mr-3">
-          <a
+          <!-- <a
             class="clear-filter"
             data-aos="fade-up"
             data-aos-easing="linear"
             data-aos-duration="1500"
             >Clear filter</a
-          >
+          > -->
+          <!-- <ais-clear-refinements></ais-clear-refinements> -->
+          <app-algolia-clear-filter></app-algolia-clear-filter>
         </div>
         <div>
           <a
