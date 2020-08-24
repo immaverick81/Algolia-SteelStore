@@ -2,10 +2,26 @@
   <ng5-slider
     [(value)]="state.start[0] || value"
     [(highValue)]="state.start[1] || highValue"
-    [options]="
-      { ceil: state.range.max, floor: state.range.min, step: 1 } || options
-    "
+    [options]="{ ceil: state.range.max, floor: state.range.min, step: 1 } || options"
     (userChangeEnd)="state.refine([$event.value, $event.highValue])"
     style="font-size: 12px;"
   ></ng5-slider>
+  <div class="d-flex justify-content-between">
+    <input class="form-control"
+      [value]="state.start[0] === state.range.min ? '' : from.value"
+      style="width: 100px; margin-top: 5px; border-radius: 5px;"
+      type="number"
+      placeholder="From"
+      #from
+      (keyup)="state.refine([from.value, to.value])"
+    />
+    <input class="form-control"
+      [value]="state.start[1] === state.range.max ? '' : to.value"
+      style="width: 100px; float: right; margin-top: 5px; border-radius: 5px; margin-left: 5px;"
+      type="number"
+      placeholder="To"
+      #to
+      (keyup)="state.refine([from.value, to.value])"
+    />
+  </div>
 </div>
