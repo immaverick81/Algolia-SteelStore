@@ -8,41 +8,39 @@ import { ChangeContext, Options } from 'ng5-slider';
 
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-algolia-range',
-  templateUrl: './algolia-range.component.html',
-  styleUrls: ['./algolia-range.component.scss'],
+	selector: 'app-algolia-range',
+	templateUrl: './algolia-range.component.html',
+	styleUrls: [ './algolia-range.component.scss' ]
 })
 export class AlgoliaRangeComponent extends BaseWidget {
-  @Input() attributeType: string;
-  public state: {
-    start: number[];
-    range: any;
-    refine: any;
-    widgetParams: object;
-  };
+	@Input() attributeType: string;
+	public state: {
+		start: number[];
+		range: any;
+		refine: any;
+		widgetParams: object;
+	};
 
-  value: number = 40;
-  highValue: number = 60;
-  options: Options = {
-    floor: 0,
-    ceil: 100,
-  };
+	value: number = 40;
+	highValue: number = 60;
+	options: Options = {
+		floor: 0,
+		ceil: 100
+	};
 
-  constructor(
-    @Inject(forwardRef(() => NgAisInstantSearch))
-    public instantSearchParent
-  ) {
-    super('RangeInput');
-  }
+	constructor(
+		@Inject(forwardRef(() => NgAisInstantSearch))
+		public instantSearchParent
+	) {
+		super('RangeInput');
+	}
 
-  ngOnInit() {
-    console.log(this.instantSearchParent);
-    console.log(this.state);
-    this.createWidget(connectRange, {
-      // instance options
-      attribute: this.attributeType,
-      precision: 4,
-    });
-    super.ngOnInit();
-  }
+	ngOnInit() {
+		this.createWidget(connectRange, {
+			// instance options
+			attribute: this.attributeType,
+			precision: 4
+		});
+		super.ngOnInit();
+	}
 }

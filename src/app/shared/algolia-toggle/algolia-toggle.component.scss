@@ -6,3 +6,8 @@
 		font-size: 12px !important;
 	}
 }
+
+#checkboxToggle .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+	background: #41c2c2 !important;
+}
