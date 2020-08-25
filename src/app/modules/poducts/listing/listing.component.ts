@@ -48,13 +48,11 @@ export class ListingComponent implements OnInit {
 	@Input() public list: ArrayType;
 	// @Input() public gloabalSearchKey;
 
-	openDialogenquiry(): void {
+	openDialogenquiry(product): void {
+
 		const dialogRef = this.dialog.open(EnquirypopUpComponent, {
 		  height: '95vh',
-	
-		  data: {
-			
-		  }
+		  data: product
 		});
 	
 		dialogRef.afterClosed().subscribe(result => {
