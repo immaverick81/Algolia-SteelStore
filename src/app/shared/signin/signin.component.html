@@ -1,0 +1,39 @@
+<section class="signin p-4 text-center">
+    <div class="closedil" (click)="closedialog()">
+        <img src="../../../assets/images/closedialog.png" />
+    </div>
+    <div class="icon pt-2">
+        <img src="../../../assets/images/enquiry.png" alt="">
+    </div>
+    <div class="heading pt-2">
+        <h3>
+            Sign <span>in</span>
+        </h3>
+    </div>
+    <form class="formmm">
+        <div class="py-2">
+            <input class="form-control" type="email" placeholder="Email address" />
+        </div>
+        <div class="py-2">
+            <input type="password" class="form-control" placeholder="Password" />
+        </div>
+        <div class="d-flex justify-content-end">
+            <a class="frgt-pass"> Forgot Password?</a>
+
+        </div>
+        <div class="py-3">
+            <div class="shortdes px-3">
+                By continuing, you agreeto Exos Terms of Use and consnet to Privacy Policy
+            </div>
+        </div>
+        <div class="py-3">
+            <button type="submit" class="form-control">Sign in   
+                <img class="icon" src="../../../assets/images/contact-arrow.png " alt="">
+            </button>
+        </div>
+        <div class="pt-3">
+            <p class="dess">Don't have an account? <span class="signup" (click)="opensignup()">Sign Up</span></p>
+        </div>
+    </form>
+
+</section>

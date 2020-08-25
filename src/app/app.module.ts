@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,19 +16,20 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-    }),
-    BrowserAnimationsModule,
-    SharedModule,
-    NgbModule,
-    NgAisModule.forRoot(),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [ AppComponent ],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		ServiceWorkerModule.register('ngsw-worker.js', {
+			enabled: environment.production
+		}),
+		BrowserAnimationsModule,
+		SharedModule,
+		NgbModule,
+		NgAisModule.forRoot(),
+		MatDialogModule
+	],
+	providers: [],
+	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
