@@ -16,6 +16,7 @@ import { PublicComponent } from './public/public.component';
 import { SecureComponent } from './secure/secure.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -31,7 +32,7 @@ import { SignupComponent } from './signup/signup.component';
 		ContactusComponent,
 		EnquirypopUpComponent
 	],
-	imports: [ CommonModule, SharedRoutingModule, MatExpansionModule, MatDialogModule ],
+	imports: [ CommonModule, SharedRoutingModule, MatExpansionModule, MatDialogModule, ReactiveFormsModule, FormsModule ],
 	exports: [ ContactusComponent ]
 })
 export class SharedModule {}

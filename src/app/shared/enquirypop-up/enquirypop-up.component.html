@@ -11,15 +11,15 @@
         </h3>
         <p class="des">Send product details</p>
     </div>
-    <form class="formmm">
+    <form [formGroup]="enquiryForm" class="formmm" (ngSubmit)="submitEnquiry()">
         <div class="py-2">
-            <input class="form-control" type="email" placeholder="Email" />
+            <input class="form-control" type="email" placeholder="Email" formControlName="email" />
         </div>
         <div class="py-2">
-            <input type="text" class="form-control" placeholder="Name" />
+            <input type="text" class="form-control" placeholder="Name" formControlName="name"/>
         </div>
         <div class="py-2">
-            <input type="text" class="form-control" placeholder="Contact Number" />
+            <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber"/>
         </div>
         <div class="py-3">
             <div class="shortdes px-3">

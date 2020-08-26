@@ -10,21 +10,21 @@
             Sign <span>up</span>
         </h3>
     </div>
-    <form class="formmm">
+    <form class="formmm" [formGroup]="signUpForm" (ngSubmit)="signUp()">
         <div class="py-2">
-            <input class="form-control" type="text" placeholder="Firsr Name" />
+            <input class="form-control" type="text" placeholder="Firsr Name" formControlName="firstName" />
         </div>
         <div class="py-2">
-            <input type="text" class="form-control" placeholder="Last Name" />
+            <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" />
         </div>
         <div class="py-2">
-            <input type="email" class="form-control" placeholder="Email Address" />
+            <input type="email" class="form-control" placeholder="Email Address" formControlName="email" />
         </div>
         <div class="py-2">
-            <input type="text" class="form-control" placeholder="Phone Number" />
+            <input type="text" class="form-control" placeholder="Phone Number" formControlName="phoneNumber" />
         </div>
         <div class="py-2">
-            <input type="password" class="form-control" placeholder="Password" />
+            <input type="password" class="form-control" placeholder="Password" formControlName="password" />
         </div>
         <div class="py-3">
             <div class="shortdes px-3">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { SignupComponent } from '../signup/signup.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -8,13 +9,25 @@ import { SignupComponent } from '../signup/signup.component';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
+  signInForm: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<SigninComponent>,
-    )
-   { }
+  constructor(public dialogRef: MatDialogRef<SigninComponent>, private _formBuilder: FormBuilder){ }
 
   ngOnInit(): void {
+    this.createForm()
   }
+
+  createForm(){
+    this.signInForm = this._formBuilder.group({
+      email: [],
+      password: []
+    })
+  }
+
+  signIn() {
+    console.log(this.signInForm.value)
+  }
+
   closedialog(){
     this.dialogRef.close();
 
@@ -32,6 +45,7 @@ export class SigninComponent implements OnInit {
   //     console.log('The dialog was closed');
   //   });
   // }
+
   opensignup(){
     this.closedialog();
     // this.openDialogsignup();
