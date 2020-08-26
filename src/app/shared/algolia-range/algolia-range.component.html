@@ -2,7 +2,7 @@
   <ng5-slider
     [(value)]="state.start[0] || value"
     [(highValue)]="state.start[1] || highValue"
-    [options]="{ ceil: state.range.max, floor: state.range.min, step: 1 } || options"
+    [options]="{ ceil: state.range.max, floor: state.range.min, step: 0.00001 } || options"
     (userChangeEnd)="state.refine([$event.value, $event.highValue])"
     style="font-size: 12px;"
   ></ng5-slider>

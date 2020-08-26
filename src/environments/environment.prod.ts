@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   algolia: {
-    appId: '6E0CUH08OE',
-    apiKey: 'c74a12666ee070285aed9ea0c35f137d',
+    appId: 'F8SNEK330L',
+    apiKey: '2c137624d63b4f26580218e661c5e5f6',
   },
 };
