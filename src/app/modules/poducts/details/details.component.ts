@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/utils/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EnquirypopUpComponent } from 'src/app/shared/enquirypop-up/enquirypop-up.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -31,7 +32,7 @@ export class DetailsComponent implements OnInit {
   };
   productDescription: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private _authService: AuthService, public dialog: MatDialog) { }
+  constructor(private activatedRoute: ActivatedRoute, private _authService: AuthService, public dialog: MatDialog, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -72,6 +73,7 @@ export class DetailsComponent implements OnInit {
       this.enquiryDetails.objectID = this.data.OBJECTID;
       this.enquiryDetails.productName = this.data.PRODUCT;
       console.log(this.enquiryDetails);
+      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
     }
   }
 
