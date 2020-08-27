@@ -31,10 +31,10 @@
                 </ul>
             </div>
             <div class="signin" data-aos="fade-up" data-aos-duration="900">
-                <label class=" mb-0 mr-2 cursor-pointer" *ngIf="_authService.getSessionInfo() == undefined" (click)="openSignInPopup()"> Sign In</label>
-                <div class="d-inline  border" *ngIf="_authService.getSessionInfo() == undefined"></div>
-                <label class=" mb-0 ml-2 cursor-pointer" *ngIf="_authService.getSessionInfo() == undefined" (click)="openSignUpPopup()">Sign Up</label>
-                <label class="mb-0 mr-2 cursor-pointer" (click)="signOut()" *ngIf="_authService.getSessionInfo() != undefined">Sign Out</label>
+                <label class=" mb-0 mr-2 cursor-pointer" *ngIf="isLoggedIn() == false" (click)="openSignInPopup()"> Sign In</label>
+                <div class="d-inline  border" *ngIf="isLoggedIn() == false"></div>
+                <label class=" mb-0 ml-2 cursor-pointer" *ngIf="isLoggedIn() == false" (click)="openSignUpPopup()">Sign Up</label>
+                <label class="mb-0 mr-2 cursor-pointer" (click)="signOut()" *ngIf="isLoggedIn() == true">Sign Out</label>
                 <button class="invetorybtn ml-3">List Inventory</button>
             </div>
         </div>
@@ -63,9 +63,10 @@
                 </ul>
             </div>
             <div class="signin">
-                <label class=" mb-0 mr-2"> Sign In</label>
-                <div class="d-inline  border"></div>
-                <label class=" mb-0 ml-2">Sign Up</label>
+                <label class=" mb-0 mr-2 cursor-pointer" *ngIf="isLoggedIn() == false" (click)="openSignInPopup()"> Sign In</label>
+                <div class="d-inline  border" *ngIf="isLoggedIn() == false"></div>
+                <label class=" mb-0 ml-2 cursor-pointer" *ngIf="isLoggedIn() == false" (click)="openSignUpPopup()">Sign Up</label>
+                <label class="mb-0 mr-2 cursor-pointer" (click)="signOut()" *ngIf="isLoggedIn() == true">Sign Out</label>
                 <button class="invetorybtn ml-3">List Inventory</button>
             </div>
         </div>

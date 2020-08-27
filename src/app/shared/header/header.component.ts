@@ -16,9 +16,19 @@ export class HeaderComponent implements OnInit {
 
 	ngOnInit(): void {}
 
+	isLoggedIn() {
+		if(this._authService.getSessionInfo() == undefined) { 
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
 	isnotHomeRoute() {
 		return this.router.url !== '/';
 	}
+
 	isHomeRoute() {
 		return this.router.url === '/';
 	}

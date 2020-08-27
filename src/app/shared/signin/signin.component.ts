@@ -32,27 +32,13 @@ export class SigninComponent implements OnInit {
       token: 'abcdedfg'
     }
     this._authService.setSessionInfo(obj);
+    this.closedialog();
   }
-
-  
 
   closedialog(){
     this.dialogRef.close();
 
   }
-  // openDialogsignup(): void {
-  //   const dialogRef = this.dialog.open(SignupComponent, {
-  //     width: '600px',
-  //     height: '95vh',
-  //     data: {
-        
-  //     }
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
 
   opensignup(){
     this.closedialog();
