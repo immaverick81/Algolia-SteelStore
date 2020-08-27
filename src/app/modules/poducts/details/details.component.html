@@ -2,12 +2,8 @@
   <div class="container py-5">
     <div class="row py-5">
       <div class="col-md-12">
-        <h3  data-aos="fade-up"
-        data-aos-easing="linear"
-        data-aos-duration="1500">Galvalume</h3>
-        <p  data-aos="fade-up"
-        data-aos-easing="linear"
-        data-aos-duration="1500"> Steel & Material</p>
+        <h3 data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">Galvalume</h3>
+        <p data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500"> Steel & Material</p>
       </div>
     </div>
   </div>
@@ -17,63 +13,44 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-5"  data-aos="fade-up"
-      data-aos-easing="linear"
-      data-aos-duration="1500">
-        <img
-          class="w-100"
-          src="../../../../assets/images/detailmain.png"
-          alt=""
-        />
+      <div class="col-md-5" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+        <img class="w-100" src="../../../../assets/images/detailmain.png" alt="" />
       </div>
       <div class="col-md-7 p-4">
         <div class="px-3">
           <div>
-            <h3 class="value-text"  data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500">{{data.THICKNESS_IN}}" X {{data.WIDTH_IN}} - {{data.WEIGHT_LB}} lbs</h3>
+            <h3 class="value-text" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+              {{data.THICKNESS_IN}}" X {{data.WIDTH_IN}} - {{data.WEIGHT_LB}} lbs</h3>
           </div>
           <div class="row">
-            <div class="col-md-4"  data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500">
+            <div class="col-md-4" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
               <div class="d-flex align-items-center py-3 des-icon">
                 <div class="mr-3">
                   <img src="../../../../assets/images/pin.png" />
                 </div>
-                <div  data-aos="fade-up"
-                data-aos-easing="linear"
-                data-aos-duration="1500">
+                <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                   <p class="text-des mb-0">Lot location</p>
                   <p class="des-name mb-0">{{ data.LOCATION }}</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4"  data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500">
+            <div class="col-md-4" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
               <div class="d-flex align-items-center py-3 des-icon">
                 <div class="mr-3">
                   <img src="../../../../assets/images/tag.png" />
                 </div>
-                <div  data-aos="fade-up"
-                data-aos-easing="linear"
-                data-aos-duration="1500">
+                <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                   <p class="text-des mb-0">Tag number</p>
                   <p class="des-name mb-0">{{ data.COILNUMBER }}</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4"  data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500">
+            <div class="col-md-4" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
               <div class="d-flex align-items-center py-3 des-icon">
                 <div class="mr-3">
                   <img src="../../../../assets/images/shield.png" />
                 </div>
-                <div  data-aos="fade-up"
-                data-aos-easing="linear"
-                data-aos-duration="1500">
+                <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
                   <p class="text-des mb-0">Lot Quality</p>
                   <p class="des-name mb-0">{{ data.QUALITY }}</p>
                 </div>
@@ -81,15 +58,10 @@
             </div>
           </div>
           <div>
-            <div  data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500"class="my-5">
-              <button class="btn-submit form-control">
+            <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500" class="my-5">
+              <button class="btn-submit form-control" (click)="sendEnquiry()">
                 Send Enquiry
-                <img
-                  src="../../../assets/images/contact-button.png"
-                  alt="icon"
-                />
+                <img src="../../../assets/images/contact-button.png" alt="icon" />
               </button>
             </div>
 
@@ -98,7 +70,7 @@
                 <mat-tab label="Material Details">
                   <div class="py-5">
                     <div>
-                      <mat-expansion-panel >
+                      <mat-expansion-panel>
                         <mat-expansion-panel-header>
                           <mat-panel-title>
                             Dimension
@@ -107,20 +79,37 @@
                             <hr class="w-75" />
                           </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <div class="destext py-3 row"  data-aos="fade-up"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500">
+                        <div class="destext py-3 row" data-aos="fade-up" data-aos-easing="linear"
+                          data-aos-duration="1500">
                           <div class="col-md-5">
-                            <label for="">Thickness</label>
+                            <label for="">Thickness ":</label>
                           </div>
                           <div class="col-md-7">
                             <span>{{data.THICKNESS_IN || 'N/A'}}</span>
                           </div>
                           <div class="col-md-5">
-                            <label for="">Thickness</label>
+                            <label for="">Width ":</label>
                           </div>
                           <div class="col-md-7">
-                            <span>{{data.THICKNESS_IN || 'N/A'}}</span>
+                            <span>{{data.WIDTH_IN || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Length ":</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.LENGTH_IN || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Inside diameter ":</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.THICKNESS_MM  || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Weight(lbs):</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.WEIGHT_LB   || 'N/A'}}</span>
                           </div>
                         </div>
                       </mat-expansion-panel>
@@ -135,20 +124,61 @@
                             <hr class="w-75" />
                           </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <div class="destext py-3 row"  data-aos="fade-up"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500">
+                        <div class="destext py-3 row" data-aos="fade-up" data-aos-easing="linear"
+                          data-aos-duration="1500">
                           <div class="col-md-5">
-                            <label for="">Thickness</label>
+                            <label for="">Grade:</label>
                           </div>
                           <div class="col-md-7">
-                            <span>989</span>
+                            <span>{{data.GRADE}}</span>
                           </div>
                           <div class="col-md-5">
-                            <label for="">Thickness</label>
+                            <label for="">Rockwell:</label>
                           </div>
                           <div class="col-md-7">
-                            <span>989</span>
+                            <span>{{data.ROCKWELL || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Yield:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.YIELD || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Elongation:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.ELONGATION || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Tensile:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.TENSILE || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Pass/oil:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.PASS_OIL || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Finish:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.FINISH || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Temper:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.TEMPER || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Coating:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.COATING || 'N/A'}}</span>
                           </div>
                         </div>
                       </mat-expansion-panel>
@@ -163,27 +193,113 @@
                             <hr class="w-75" />
                           </mat-panel-description>
                         </mat-expansion-panel-header>
-                        <div class="destext py-3 row"  data-aos="fade-up"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500">
+                        <div class="destext py-3 row" data-aos="fade-up" data-aos-easing="linear"
+                          data-aos-duration="1500">
                           <div class="col-md-5">
-                            <label for="">Thickness</label>
+                            <label for="">Carbon:</label>
                           </div>
                           <div class="col-md-7">
-                            <span>989</span>
+                            <span>{{data.C || 'N/A'}}</span>
                           </div>
                           <div class="col-md-5">
-                            <label for="">Thickness</label>
+                            <label for="">Magnessium:</label>
                           </div>
                           <div class="col-md-7">
-                            <span>989</span>
+                            <span>{{data.MN || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Phosphourus:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.P || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Sulphur:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.S || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Silicon:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.SI || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Alluminium:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.AL || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Cromium:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.CR || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Niobium:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.NB || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Titanium:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.TI || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Calcium:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.CA || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Nitrogen:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.N || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Nickel:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.NI || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Copper:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.CU || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Vanadium:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.V || 'N/A'}}</span>
+                          </div>
+                          <div class="col-md-5">
+                            <label for="">Boron:</label>
+                          </div>
+                          <div class="col-md-7">
+                            <span>{{data.B || 'N/A'}}</span>
                           </div>
                         </div>
                       </mat-expansion-panel>
                     </div>
                   </div>
                 </mat-tab>
-                <mat-tab label="Additional Information"> Content 2 </mat-tab>
+                <mat-tab label="Additional Information">
+                  <div class="product-info-heading">
+                    <h3>{{data.PRODUCT}}</h3>
+                  </div>
+                  <div class="ml-20">
+                    <p>
+                      {{productDescription}}
+                    </p>
+                  </div>
+                </mat-tab>
               </mat-tab-group>
             </div>
           </div>

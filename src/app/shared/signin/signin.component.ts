@@ -28,7 +28,7 @@ export class SigninComponent implements OnInit {
   signIn() {
     console.log(this.signInForm.value);
     let obj = {
-      name: this.signInForm.get('email').value,
+      email: this.signInForm.get('email').value,
       token: 'abcdedfg'
     }
     this._authService.setSessionInfo(obj);
