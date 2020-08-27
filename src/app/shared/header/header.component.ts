@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { SigninComponent } from '../signin/signin.component';
 import { SignupComponent } from './../signup/signup.component';
+import { AuthService } from '../utils/auth.service';
 
 @Component({
 	selector: 'app-header',
@@ -11,7 +12,7 @@ import { SignupComponent } from './../signup/signup.component';
 	styleUrls: [ './header.component.scss' ]
 })
 export class HeaderComponent implements OnInit {
-	constructor(private router: Router, public dialog: MatDialog) {}
+	constructor(private router: Router, public dialog: MatDialog, private _authService: AuthService) {}
 
 	ngOnInit(): void {}
 
@@ -45,4 +46,8 @@ export class HeaderComponent implements OnInit {
 			console.log('The dialog was closed');
 		});
 	}
+
+	signOut() {
+		this._authService.removeSession();
+	  }
 }

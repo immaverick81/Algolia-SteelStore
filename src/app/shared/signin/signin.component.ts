@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { SignupComponent } from '../signup/signup.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from '../utils/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SigninComponent implements OnInit {
   signInForm: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<SigninComponent>, private _formBuilder: FormBuilder){ }
+  constructor(public dialogRef: MatDialogRef<SigninComponent>, private _formBuilder: FormBuilder, private _authService: AuthService){ }
 
   ngOnInit(): void {
     this.createForm()
@@ -25,8 +26,15 @@ export class SigninComponent implements OnInit {
   }
 
   signIn() {
-    console.log(this.signInForm.value)
+    console.log(this.signInForm.value);
+    let obj = {
+      name: this.signInForm.get('email').value,
+      token: 'abcdedfg'
+    }
+    this._authService.setSessionInfo(obj);
   }
+
+  
 
   closedialog(){
     this.dialogRef.close();
