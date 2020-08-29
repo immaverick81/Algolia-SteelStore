@@ -49,6 +49,7 @@ export class SigninComponent implements OnInit {
             token: data.data.token
           };
           this._authService.setSessionInfo(obj);
+          this.closedialog();
           this.toasterService.success('Login successful');
         },
         (error) => {
@@ -58,7 +59,6 @@ export class SigninComponent implements OnInit {
           this.toasterService.clear();
         }
       );
-      this.closedialog();
     }
 	}
 

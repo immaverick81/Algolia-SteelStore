@@ -62,6 +62,7 @@ export class SignupComponent implements OnInit {
 							token: result.data.token
 						};
 						this._authService.setSessionInfo(obj);
+						this.closedialog();
 						this.toasterService.success('Signup successful');
 					});
 				},
@@ -72,7 +73,6 @@ export class SignupComponent implements OnInit {
 					this.toasterService.clear();
 				}
 			);
-		this.closedialog();
 		}
 	}
 
