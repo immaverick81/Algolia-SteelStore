@@ -17,10 +17,9 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {}
 
 	isLoggedIn() {
-		if(this._authService.getSessionInfo() == undefined) { 
+		if (this._authService.getSessionInfo() == undefined) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
 	}
@@ -33,7 +32,7 @@ export class HeaderComponent implements OnInit {
 		return this.router.url === '/';
 	}
 
-	openSignInPopup() {
+	openDialogsignin() {
 		const dialogRef = this.dialog.open(SigninComponent, {
 			height: '95vh',
 
@@ -45,7 +44,7 @@ export class HeaderComponent implements OnInit {
 		});
 	}
 
-	openSignUpPopup() {
+	openDialogsignup() {
 		const dialogRef = this.dialog.open(SignupComponent, {
 			height: '95vh',
 
@@ -59,5 +58,5 @@ export class HeaderComponent implements OnInit {
 
 	signOut() {
 		this._authService.removeSession();
-	  }
+	}
 }
