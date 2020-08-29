@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -15,6 +15,9 @@ import { AuthService } from '../utils/auth.service';
 })
 export class SignupComponent implements OnInit {
 	signUpForm: FormGroup;
+	isFormSubmitted: boolean = false;
+	emailRegex = /[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}/;
+
 	constructor(
 		public dialogRef: MatDialogRef<SignupComponent>,
 		public dialog: MatDialog,
@@ -30,42 +33,43 @@ export class SignupComponent implements OnInit {
 
 	createForm() {
 		this.signUpForm = this._formBuilder.group({
-			firstName: [],
-			lastName: [],
-			email: [],
-			username: [],
-			phoneNumber: [],
-			password: []
+			firstName: [''],
+			lastName: [''],
+			email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+			phoneNumber: ['', [Validators.required]],
+			password: ['', [Validators.required]]
 		});
 	}
 
-	closedialog() {
-		this.dialogRef.close();
-	}
-
 	signUp() {
-		console.log(this.signUpForm.value);
-		this.loginService
+		this.isFormSubmitted = true;
+		this.signUpForm.markAllAsTouched();
+		if(this.signUpForm.valid) {
+			this.loginService
 			.signup(
-				this.signUpForm.get('firstName').value,
-				this.signUpForm.get('lastName').value,
 				this.signUpForm.get('email').value,
 				this.signUpForm.get('password').value,
-				this.signUpForm.get('phoneNumber').value,
-				this.signUpForm.get('password').value
+				this.signUpForm.get('email').value,
+				this.signUpForm.get('firstName').value,
+				this.signUpForm.get('lastName').value,
+				this.signUpForm.get('phoneNumber').value
 			)
 			.subscribe(
 				(data) => {
-					console.log(data);
-					let obj = {
-						email: data.data.email,
-						username: data.data.username,
-						token: data.data.token
-					};
-					this._authService.setSessionInfo(obj);
-					this.toasterService.success('Signup successful');
+					this.loginService.login(this.signUpForm.get('email').value, this.signUpForm.get('password').value).subscribe(result => {
+						this.isFormSubmitted = false;
+						this.signUpForm.reset();
+						let obj = {
+							email: result.data.email,
+							username: result.data.username,
+							token: result.data.token
+						};
+						this._authService.setSessionInfo(obj);
+						this.toasterService.success('Signup successful');
+					});
 				},
 				(error) => {
+					this.isFormSubmitted = false;
 					this.toasterService.error('Signup failed');
 				},
 				() => {
@@ -73,6 +77,20 @@ export class SignupComponent implements OnInit {
 				}
 			);
 		this.closedialog();
+		}
+	}
+
+	closedialog() {
+		this.dialogRef.close();
+	}
+
+	isControlIsInValid(controlName: string){
+		if(this.signUpForm.get(controlName).touched && this.signUpForm.get(controlName).invalid) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	openDialogsignup(): void {
@@ -86,6 +104,7 @@ export class SignupComponent implements OnInit {
 			console.log('The dialog was closed');
 		});
 	}
+
 	opensignin() {
 		this.closedialog();
 		this.openDialogsignup();

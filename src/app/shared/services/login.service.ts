@@ -10,7 +10,7 @@ import { BASE_URL } from '../../constants/app.constants';
 export class LoginService {
 	users: any[] = [];
 	user: any;
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient) { }
 
 	login(email: string, password: string): Observable<any> {
 		return this.http.post(`${BASE_URL}login`, {
