@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -15,13 +15,15 @@ import { AuthService } from '../utils/auth.service';
 })
 export class SigninComponent implements OnInit {
 	signInForm: FormGroup;
+  emailRegex = /[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}/;
 
 	constructor(
 		public dialogRef: MatDialogRef<SigninComponent>,
 		private _formBuilder: FormBuilder,
 		private _authService: AuthService,
 		private loginService: LoginService,
-		private toasterService: ToastrService
+    private toasterService: ToastrService,
+    public dialog: MatDialog
 	) {}
 
 	ngOnInit(): void {
@@ -30,31 +32,34 @@ export class SigninComponent implements OnInit {
 
 	createForm() {
 		this.signInForm = this._formBuilder.group({
-			email: [],
-			password: []
+			email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+			password: ['',[Validators.required]]
 		});
 	}
 
 	signIn() {
-		this.loginService.login(this.signInForm.get('email').value, this.signInForm.get('password').value).subscribe(
-			(data) => {
-				console.log(data);
-				let obj = {
-					email: data.data.email,
-					username: data.data.username,
-					token: data.data.token
-				};
-				this._authService.setSessionInfo(obj);
-				this.toasterService.success('Login successful');
-			},
-			(error) => {
-				this.toasterService.error('Login failed');
-			},
-			() => {
-				this.toasterService.clear();
-			}
-		);
-		this.closedialog();
+    this.signInForm.markAllAsTouched();
+    if(this.signInForm.valid) {
+      this.loginService.login(this.signInForm.get('email').value, this.signInForm.get('password').value).subscribe(
+        (data) => {
+          console.log(data);
+          let obj = {
+            email: data.data.email,
+            username: data.data.username,
+            token: data.data.token
+          };
+          this._authService.setSessionInfo(obj);
+          this.toasterService.success('Login successful');
+        },
+        (error) => {
+          this.toasterService.error('Login failed');
+        },
+        () => {
+          this.toasterService.clear();
+        }
+      );
+      this.closedialog();
+    }
 	}
 
 	closedialog() {
@@ -63,6 +68,18 @@ export class SigninComponent implements OnInit {
 
 	opensignup() {
 		this.closedialog();
-		// this.openDialogsignup();
+		this.openDialogSignUp();
+  }
+  
+  openDialogSignUp(): void {
+		const dialogRef = this.dialog.open(SignupComponent, {
+			width: '600px',
+			height: '95vh',
+			data: {}
+		});
+
+		dialogRef.afterClosed().subscribe((result) => {
+			console.log('The dialog was closed');
+		});
 	}
 }

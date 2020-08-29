@@ -15,7 +15,6 @@ import { AuthService } from '../utils/auth.service';
 })
 export class SignupComponent implements OnInit {
 	signUpForm: FormGroup;
-	isFormSubmitted: boolean = false;
 	emailRegex = /[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}/;
 
 	constructor(
@@ -42,7 +41,6 @@ export class SignupComponent implements OnInit {
 	}
 
 	signUp() {
-		this.isFormSubmitted = true;
 		this.signUpForm.markAllAsTouched();
 		if(this.signUpForm.valid) {
 			this.loginService
@@ -57,7 +55,6 @@ export class SignupComponent implements OnInit {
 			.subscribe(
 				(data) => {
 					this.loginService.login(this.signUpForm.get('email').value, this.signUpForm.get('password').value).subscribe(result => {
-						this.isFormSubmitted = false;
 						this.signUpForm.reset();
 						let obj = {
 							email: result.data.email,
@@ -69,7 +66,6 @@ export class SignupComponent implements OnInit {
 					});
 				},
 				(error) => {
-					this.isFormSubmitted = false;
 					this.toasterService.error('Signup failed');
 				},
 				() => {
@@ -93,7 +89,7 @@ export class SignupComponent implements OnInit {
 		}
 	}
 
-	openDialogsignup(): void {
+	openDialogSignIn(): void {
 		const dialogRef = this.dialog.open(SigninComponent, {
 			width: '600px',
 			height: '95vh',
@@ -107,6 +103,6 @@ export class SignupComponent implements OnInit {
 
 	opensignin() {
 		this.closedialog();
-		this.openDialogsignup();
+		this.openDialogSignIn();
 	}
 }
