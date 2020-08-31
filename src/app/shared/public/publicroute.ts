@@ -11,33 +11,33 @@ export const PUBLIC_ROUTES: Routes = [
 	{
 		path: '',
 		loadChildren: () => import('../../modules/home/home.module').then((m) => m.HomeModule)
-	}
+	},
 
-	//  {
-	//    path: 'steel',
-	//    loadChildren: () =>
-	//    import("../../modules/poducts/poducts.module").then((m) => m.PoductsModule),
-	//  },
-	//  {
-	//   path: '',
-	//   loadChildren: () =>
-	//   import("../../modules/other/other.module").then((m) => m.OtherModule),
-	// },
-	//  {
-	//     path: RouteConstant.aboutUs,
-	//     component: AboutComponent
-	//   },
-	//   {
-	//     path: RouteConstant.faq,
-	//     component: FaqComponent
-	//   },
-	//   {
-	//     path: RouteConstant.privacyPolicy,
-	//     component: PrivacyComponent
-	//   },
-	//   {
-	//     path: "",
-	//      loadChildren: () =>
-	//        import("../../modules/other/other.module").then((m) => m.OtherModule),
-	//  },
+	 {
+	   path: 'steel',
+	   loadChildren: () =>
+	   import("../../modules/poducts/poducts.module").then((m) => m.PoductsModule),
+	 },
+	 {
+	  path: '',
+	  loadChildren: () =>
+	  import("../../modules/other/other.module").then((m) => m.OtherModule),
+	},
+	 {
+	    path: RouteConstant.aboutUs,
+	    component: AboutComponent
+	  },
+	  {
+	    path: RouteConstant.faq,
+	    component: FaqComponent
+	  },
+	  {
+	    path: RouteConstant.privacyPolicy,
+	    component: PrivacyComponent
+	  },
+	  {
+	    path: "",
+	     loadChildren: () =>
+	       import("../../modules/other/other.module").then((m) => m.OtherModule),
+	 },
 ];
