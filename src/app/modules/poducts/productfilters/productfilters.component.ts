@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { BaseWidget, Widget, Connector } from 'angular-instantsearch';
 
@@ -12,7 +12,8 @@ const searchClient = algoliasearch(environment.algolia.appId, environment.algoli
 @Component({
 	selector: 'app-productfilters',
 	templateUrl: './productfilters.component.html',
-	styleUrls: [ './productfilters.component.scss' ]
+	styleUrls: [ './productfilters.component.scss' ],
+	encapsulation: ViewEncapsulation.None
 })
 export class ProductfiltersComponent implements OnInit, BaseWidget {
 	morefilter = false;

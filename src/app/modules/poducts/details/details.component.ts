@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/shared/utils/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EnquirypopUpComponent } from 'src/app/shared/enquirypop-up/enquirypop-up.component';
 import { ToastrService } from 'ngx-toastr';
+import { ProductEnquiryModel } from 'src/app/shared/models/product-enquiry.model';
 
 @Component({
   selector: 'app-details',
@@ -13,11 +14,13 @@ import { ToastrService } from 'ngx-toastr';
 export class DetailsComponent implements OnInit {
   data: any;
 
-  public enquiryDetails = {
-    email: "",
-    coilNumber: "",
-    objectID: "",
-    productName: ""
+  public enquiryDetails: ProductEnquiryModel = {
+    userName: '',
+    email: '',
+    contactNumber: null,
+    coilNumber: null,
+    objectID: null,
+    productName: ''
   };
 
   productDescriptionList = {
@@ -68,10 +71,14 @@ export class DetailsComponent implements OnInit {
       this.openEnquiryDailog();
     }
     else {
-      this.enquiryDetails.email = this._authService.getSessionInfo().emil;
-      this.enquiryDetails.coilNumber = this.data.COILNUMBER;
-      this.enquiryDetails.objectID = this.data.OBJECTID;
-      this.enquiryDetails.productName = this.data.PRODUCT;
+      this.enquiryDetails = {
+        userName: this._authService.getSessionInfo().userName,
+        email: this._authService.getSessionInfo().emil,
+        contactNumber: this._authService.getSessionInfo().contactNumber,
+        coilNumber: this.data.COILNUMBER,
+        objectID: this.data.OBJECTID,
+        productName: this.data.PRODUCT
+      }
       console.log(this.enquiryDetails);
       this.toastr.success('Thanks for enquiry...', 'Confirmation!');
     }

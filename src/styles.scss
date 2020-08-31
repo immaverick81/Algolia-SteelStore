@@ -148,3 +148,7 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background  {
+  background: #007bff !important;
+}

@@ -13,13 +13,28 @@
     </div>
     <form [formGroup]="enquiryForm" class="formmm" (ngSubmit)="submitEnquiry()">
         <div class="py-2">
-            <input class="form-control" type="email" placeholder="Email" formControlName="email" />
+            <input class="form-control" type="email" placeholder="Email" formControlName="email" 
+            [ngClass]="{'border border-danger' : enquiryForm.get('email').touched && enquiryForm.get('email').invalid}" />
+        </div>
+        <div class="text-left" *ngIf="(enquiryForm.get('email').touched && enquiryForm.get('email').errors?.required) && !enquiryForm.get('email').errors?.pattern">
+            <span class="text-danger">Required</span>
+        </div>
+        <div class="text-left" *ngIf="!enquiryForm.get('email').errors?.required && enquiryForm.get('email').errors?.pattern">
+            <span class="text-danger">Invalid Email</span>
         </div>
         <div class="py-2">
-            <input type="text" class="form-control" placeholder="Name" formControlName="name"/>
+            <input type="text" class="form-control" placeholder="Name" formControlName="name"
+            [ngClass]="{'border border-danger' : enquiryForm.get('name').touched && enquiryForm.get('name').invalid}" />
+        </div>
+        <div class="text-left" *ngIf="enquiryForm.get('name').touched && enquiryForm.get('name').errors?.required">
+            <span class="text-danger">Required</span>
         </div>
         <div class="py-2">
-            <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber"/>
+            <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber" 
+            [ngClass]="{'border border-danger' : enquiryForm.get('contactNumber').touched && enquiryForm.get('contactNumber').invalid}" />
+        </div>
+        <div class="text-left" *ngIf="enquiryForm.get('contactNumber').touched && enquiryForm.get('contactNumber').errors?.required">
+            <span class="text-danger">Required</span>
         </div>
         <div class="py-3">
             <div class="shortdes px-3">

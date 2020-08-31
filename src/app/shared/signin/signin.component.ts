@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginService } from './../services/login.service';
 import { SignupComponent } from '../signup/signup.component';
 import { AuthService } from '../utils/auth.service';
+import { AppRegularExpressionEnum } from '../enums/app-regular-expression.enum';
 
 @Component({
 	selector: 'app-signin',
@@ -15,7 +16,6 @@ import { AuthService } from '../utils/auth.service';
 })
 export class SigninComponent implements OnInit {
 	signInForm: FormGroup;
-  emailRegex = /[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}/;
 
 	constructor(
 		public dialogRef: MatDialogRef<SigninComponent>,
@@ -24,7 +24,9 @@ export class SigninComponent implements OnInit {
 		private loginService: LoginService,
     private toasterService: ToastrService,
     public dialog: MatDialog
-	) {}
+	) {
+    dialogRef.disableClose = true;
+  }
 
 	ngOnInit(): void {
 		this.createForm();
@@ -32,7 +34,7 @@ export class SigninComponent implements OnInit {
 
 	createForm() {
 		this.signInForm = this._formBuilder.group({
-			email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+			email: ['', [Validators.required, Validators.pattern(AppRegularExpressionEnum.emailRegex)]],
 			password: ['',[Validators.required]]
 		});
 	}
@@ -45,7 +47,7 @@ export class SigninComponent implements OnInit {
           console.log(data);
           let obj = {
             email: data.data.email,
-            username: data.data.username,
+            userName: data.data.username,
             token: data.data.token
           };
           this._authService.setSessionInfo(obj);

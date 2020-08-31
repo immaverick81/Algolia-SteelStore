@@ -12,9 +12,12 @@
     </div>
     <form class="formmm" [formGroup]="signUpForm" (ngSubmit)="signUp()">
         <div class="py-2">
-            <input class="form-control" type="text" placeholder="Firsr Name" formControlName="firstName" />
+            <input class="form-control" type="text" placeholder="First Name" formControlName="firstName"
+            [ngClass]="{'border border-danger' : isControlIsInValid('firstName')}" />
         </div>
-        
+        <div class="text-left" *ngIf="isControlIsInValid('firstName')">
+            <span class="text-danger">Required</span>
+        </div>
         <div class="py-2">
             <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" />
         </div>
