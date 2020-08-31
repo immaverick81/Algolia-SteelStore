@@ -64,12 +64,11 @@ export class ListingComponent implements OnInit {
         height: '95vh',
         data: product,
       });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('The dialog was closed');
+      });
     } else {
       this.toastr.success('Thanks for enquiry...', 'Confirmation!');
     }
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
   }
 }
