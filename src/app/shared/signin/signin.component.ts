@@ -70,7 +70,7 @@ export class SigninComponent implements OnInit {
 
 	opensignup() {
 		this.closedialog();
-		this.openDialogSignUp();
+		//this.openDialogSignUp();
   }
   
   openDialogSignUp(): void {
