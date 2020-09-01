@@ -47,7 +47,7 @@ export class ListingComponent implements OnInit {
     public dialog: MatDialog,
     private _authService: AuthService,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   getProductId = (objectID) => (objectID ? `TSS${objectID}` : 'NA');
 
@@ -70,5 +70,48 @@ export class ListingComponent implements OnInit {
     } else {
       this.toastr.success('Thanks for enquiry...', 'Confirmation!');
     }
+  }
+
+  navigateToDetails(elements) {
+    this.router.navigate(['/steel/details'], {
+      queryParams:{
+        WIDTH_IN: elements.WIDTH_IN + 1 || 'N/A',
+        THICKNESS_IN: elements.THICKNESS_IN + 0.002 || 'N/A',
+        LENGTH_IN: elements.LENGTH_IN || 'N/A',
+        THICKNESS_MM: elements.THICKNESS_MM || 'N/A',
+        WEIGHT_LB: elements.WEIGHT_LB + 1240 || 'N/A',
+        VENDOR: elements.VENDOR || 'N/A',
+        GRADE: elements.GRADE || 'N/A',
+        ROCKWELL: elements.ROCKWELL || 'N/A',
+        YIELD: elements.YIELD || 'N/A',
+        ELONGATION: elements.ELONGATION || 'N/A',
+        TENSILE: elements.TENSILE || 'N/A',
+        PASS_OIL: elements['PASS/OIL'] || 'N/A',
+        FINISH: elements.FINISH || 'N/A',
+        TEMPER: elements.TEMPER || 'N/A',
+        COATING: elements.COATING || 'N/A',
+        C: elements.C || 'N/A',
+        MN: elements.MN || 'N/A',
+        P: elements.P || 'N/A',
+        S: elements.S || 'N/A',
+        SI: elements.SI || 'N/A',
+        AL: elements.AL || 'N/A',
+        CR: elements.CR || 'N/A',
+        NB: elements.NB || 'N/A',
+        TI: elements.TI || 'N/A',
+        CA: elements.CA || 'N/A',
+        N: elements.N || 'N/A',
+        NI: elements.NI || 'N/A',
+        CU: elements.CU || 'N/A',
+        V: elements.V || 'N/A',
+        B: elements.B || 'N/A',
+        LOCATION: elements.LOCATION || 'N/A',
+        TAGNUMBER: elements.TAGNUMBER || 'N/A',
+        QUALITY: elements.QUALITY || 'N/A',
+        COILNUMBER: elements.COILNUMBER || 'N/A',
+        OBJECTID: elements.objectID || 'N/A',
+        PRODUCT: elements.PRODUCT || 'N/A'
+      }
+      , queryParamsHandling:"merge"})
   }
 }
