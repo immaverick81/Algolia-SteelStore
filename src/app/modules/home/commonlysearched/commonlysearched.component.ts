@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/shared/utils/auth.service';
+import { EnquirypopUpComponent } from 'src/app/shared/enquirypop-up/enquirypop-up.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-commonlysearched',
@@ -7,10 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommonlysearchedComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+
+    private _authService: AuthService,
+    public dialog: MatDialog,
+    private toastr: ToastrService
+
+
+
+  ) { }
 
   ngOnInit(): void {
   }
+  openDialogenquiry(product): void {
+    if (this._authService.getSessionInfo() == undefined) {
+      const dialogRef = this.dialog.open(EnquirypopUpComponent, {
+        height: '95vh',
+        data: product,
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('The dialog was closed');
+      });
+    } else {
+      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+    }
+  }
+
   commonsearched = [
     {
       product: "Galvanized",
