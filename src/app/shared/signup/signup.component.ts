@@ -4,10 +4,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
 
+import { AppRegularExpressionEnum } from '../enums/app-regular-expression.enum';
 import { LoginService } from './../services/login.service';
 import { SigninComponent } from '../signin/signin.component';
 import { AuthService } from '../utils/auth.service';
-import { AppRegularExpressionEnum } from '../enums/app-regular-expression.enum';
 
 @Component({
 	selector: 'app-signup',
@@ -34,47 +34,49 @@ export class SignupComponent implements OnInit {
 
 	createForm() {
 		this.signUpForm = this._formBuilder.group({
-			firstName: ['', [Validators.required]],
-			lastName: [''],
-			email: ['', [Validators.required, Validators.pattern(AppRegularExpressionEnum.emailRegex)]],
-			phoneNumber: ['', [Validators.required]],
-			password: ['', [Validators.required]]
+			firstName: [ '', [ Validators.required ] ],
+			lastName: [ '' ],
+			email: [ '', [ Validators.required, Validators.pattern(AppRegularExpressionEnum.emailRegex) ] ],
+			phoneNumber: [ '', [ Validators.required ] ],
+			password: [ '', [ Validators.required ] ]
 		});
 	}
 
 	signUp() {
 		this.signUpForm.markAllAsTouched();
-		if(this.signUpForm.valid) {
+		if (this.signUpForm.valid) {
 			this.loginService
-			.signup(
-				this.signUpForm.get('firstName').value + ' ' + (this.signUpForm.get('lastName').value ? this.signUpForm.get('lastName').value : ''),
-				this.signUpForm.get('password').value,
-				this.signUpForm.get('email').value,
-				this.signUpForm.get('firstName').value,
-				this.signUpForm.get('lastName').value,
-				this.signUpForm.get('phoneNumber').value
-			)
-			.subscribe(
-				(data) => {
-					this.loginService.login(this.signUpForm.get('email').value, this.signUpForm.get('password').value).subscribe(result => {
-						this.signUpForm.reset();
-						let obj = {
-							email: result.data.email,
-							userName: result.data.username,
-							token: result.data.token
-						};
-						this._authService.setSessionInfo(obj);
-						this.closedialog();
-						this.toasterService.success('Signup successful');
-					});
-				},
-				(error) => {
-					this.toasterService.error('Signup failed');
-				},
-				() => {
-					this.toasterService.clear();
-				}
-			);
+				.signup(
+					this.signUpForm.get('firstName').value,
+					this.signUpForm.get('password').value,
+					this.signUpForm.get('email').value,
+					this.signUpForm.get('firstName').value,
+					this.signUpForm.get('lastName').value,
+					this.signUpForm.get('phoneNumber').value
+				)
+				.subscribe(
+					(data) => {
+						this.loginService
+							.login(this.signUpForm.get('email').value, this.signUpForm.get('password').value)
+							.subscribe((result) => {
+								this.signUpForm.reset();
+								let obj = {
+									email: result.data.email,
+									userName: result.data.username,
+									token: result.data.token
+								};
+								this._authService.setSessionInfo(obj);
+								this.closedialog();
+								this.toasterService.success('Signup successful');
+							});
+					},
+					(error) => {
+						this.toasterService.error('Signup failed');
+					},
+					() => {
+						this.toasterService.clear();
+					}
+				);
 		}
 	}
 
@@ -82,11 +84,10 @@ export class SignupComponent implements OnInit {
 		this.dialogRef.close();
 	}
 
-	isControlIsInValid(controlName: string){
-		if(this.signUpForm.get(controlName).touched && this.signUpForm.get(controlName).invalid) {
+	isControlIsInValid(controlName: string) {
+		if (this.signUpForm.get(controlName).touched && this.signUpForm.get(controlName).invalid) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
