@@ -50,7 +50,7 @@ export class SigninComponent implements OnInit {
             userName: data.data.username,
             token: data.data.token
           };
-          this._authService.setSessionInfo(obj);
+		  this._authService.setSessionInfo(obj);
           this.closedialog();
           this.toasterService.success('Login successful');
         },

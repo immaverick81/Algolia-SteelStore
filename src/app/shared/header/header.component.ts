@@ -16,11 +16,20 @@ export class HeaderComponent implements OnInit {
 
 	ngOnInit(): void {}
 
-	isLoggedIn() {
+	isLoggedIn(): boolean {
 		if (this._authService.getSessionInfo() == undefined) {
 			return false;
 		} else {
 			return true;
+		}
+	}
+
+	getUserName(): string {
+		if(this._authService.getSessionInfo().userName != undefined) {
+			return 'Hello ' + this._authService.getSessionInfo().userName;
+		}
+		else {
+			return '';
 		}
 	}
 

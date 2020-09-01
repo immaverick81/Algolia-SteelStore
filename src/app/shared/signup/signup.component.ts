@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
 						this.signUpForm.reset();
 						let obj = {
 							email: result.data.email,
-							username: result.data.username,
+							userName: result.data.username,
 							token: result.data.token
 						};
 						this._authService.setSessionInfo(obj);

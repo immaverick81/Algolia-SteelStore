@@ -20,4 +20,5 @@ export class AuthService {
     removeSession() {
         window.localStorage.removeItem('token');
     }
+    
 }
