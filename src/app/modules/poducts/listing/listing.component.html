@@ -16,6 +16,7 @@
               <th>PIW</th>
               <th>Location</th>
               <th>Coilnumber</th>
+              <th>Price</th>
               <th>Action</th>
             </tr>
             <tr class="cursor-pointer"
@@ -31,9 +32,16 @@
               <td (click)="navigateToDetails(elements)">{{ elements.PIW || "N/A" }}</td>
               <td (click)="navigateToDetails(elements)">{{ elements.LOCATION || "N/A" }}</td>
               <td (click)="navigateToDetails(elements)">{{ elements.COILNUMBER || "N/A" }}</td>
-              <td>
+              <td>Price</td>
+
+              <td class="d-flex align-items-center">
                 <div class="enquiry-btn">
                   <button class="btn" (click)="openDialogenquiry(elements)">Enquiry</button>
+              
+
+                </div>
+                <div class="make-offer ml-2">
+                  <button class="btn " >Make An Offer</button>
                 </div>
               </td>
             </tr>
