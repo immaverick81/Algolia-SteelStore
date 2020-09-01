@@ -25,10 +25,9 @@ export class HeaderComponent implements OnInit {
 	}
 
 	getUserName(): string {
-		if(this._authService.getSessionInfo().userName != undefined) {
-			return 'Hello ' + this._authService.getSessionInfo().userName;
-		}
-		else {
+		if (this._authService.getSessionInfo().userName != undefined) {
+			return 'Hello, ' + this._authService.getSessionInfo().userName;
+		} else {
 			return '';
 		}
 	}
