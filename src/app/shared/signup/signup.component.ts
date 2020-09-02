@@ -38,13 +38,14 @@ export class SignupComponent implements OnInit {
 			lastName: [ '' ],
 			email: [ '', [ Validators.required, Validators.pattern(AppRegularExpressionEnum.emailRegex) ] ],
 			phoneNumber: [ '', [ Validators.required ] ],
-			password: [ '', [ Validators.required ] ]
+			password: [ '', [ Validators.required ] ],
+			confirmPassword: ['', [Validators.required]]
 		});
 	}
 
 	signUp() {
 		this.signUpForm.markAllAsTouched();
-		if (this.signUpForm.valid) {
+		if (this.signUpForm.valid && this.signUpForm.get('password').value == this.signUpForm.get('confirmPassword').value) {
 			this.loginService
 				.signup(
 					this.signUpForm.get('firstName').value,
@@ -89,6 +90,20 @@ export class SignupComponent implements OnInit {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	isConfirmPasswordValid(): boolean {
+		if(this.signUpForm.get('password').value) {
+			if(this.signUpForm.get('password').value == this.signUpForm.get('confirmPassword').value) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return true;
 		}
 	}
 

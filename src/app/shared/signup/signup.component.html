@@ -39,12 +39,24 @@
         <div class="text-left" *ngIf="isControlIsInValid('phoneNumber')">
             <span class="text-danger">Required</span>
         </div>
+
         <div class="py-2">
             <input type="password" class="form-control" placeholder="Password" formControlName="password"
             [ngClass]="{'border border-danger' : isControlIsInValid('password')}" />
         </div>
         <div class="text-left" *ngIf="isControlIsInValid('password')">
             <span class="text-danger">Required</span>
+        </div>
+
+        <div class="py-2">
+            <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword"
+            [ngClass]="{'border border-danger' : isControlIsInValid('confirmPassword') || (signUpForm.get('confirmPassword').dirty && isConfirmPasswordValid() == false)}" />
+        </div>
+        <div class="text-left" *ngIf="isControlIsInValid('confirmPassword')">
+            <span class="text-danger">Required</span>
+        </div>
+        <div class="text-left" *ngIf="!signUpForm.get('confirmPassword').errors?.required && isConfirmPasswordValid() == false">
+            <span class="text-danger">Password & Confirm Password does not match</span>
         </div>
         <div class="py-3">
             <div class="shortdes px-3">
