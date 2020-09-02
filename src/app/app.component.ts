@@ -1,7 +1,10 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { filter, map } from "rxjs/operators";
 
 import * as AOS from 'aos';
+
+declare var gtag;
 
 // tslint:disable-next-line:ban-types
 declare let ga: Function;
@@ -13,12 +16,12 @@ declare let ga: Function;
 export class AppComponent implements OnInit {
 	title = 'exos';
 	constructor(public router: Router) {
-		this.router.events.subscribe((event) => {
-			if (event instanceof NavigationEnd) {
-				ga('set', event.urlAfterRedirects);
-				ga('send', 'pageview');
-			}
-		});
+		const navEndEvent$ = router.events.pipe(
+			filter((e) => e instanceof NavigationEnd)
+		  );
+		  navEndEvent$.subscribe((e: NavigationEnd) => {
+			gtag("config", "'UA-176905807-1", { page_path: e.urlAfterRedirects });
+		  });
 	}
 
 	ngOnInit() {
