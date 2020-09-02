@@ -10,17 +10,27 @@
                   <div class="d-flex justify-content-center align-items-center">
 
                       <h3 class="mb-0 mobile-off">Search your Product</h3>
-                      <select class="selectdesign form-control ml-3">
+                      <mat-select name="productCategory" [(value)]="selectedCategory"
+                      class="selectdesign form-control ml-3"
+                      placeholder="Select Category">
+                        <mat-option [value]="'galvanized'">Galvanized</mat-option>
+                        <mat-option [value]="'galvalume'">Galvalume</mat-option>
+                        <mat-option [value]="'galvaneneal'">Galvaneneal</mat-option>
+                        <mat-option [value]="'hot-roll'">Hot Roll</mat-option>
+                        <mat-option [value]="'cold-roll'">Cold Roll</mat-option>
+                        <mat-option [value]="'electro-galvanized'">Electro Galvanized</mat-option>
+                      </mat-select>
+                      <!-- <select class="selectdesign form-control ml-3">
                           <option selected> Select Category</option>
-                          <option>Galvanized</option>
-                          <option>Galvalume</option>
-                          <option>Galvaneneal</option>
-                          <option>Hot Roll</option>
-                          <option>Cold Roll</option>
-                          <option>Electro Galvanized</option>
-                      </select>
+                          <option value="galvanized">Galvanized</option>
+                          <option value="galvalume">Galvalume</option>
+                          <option value="galvaneal">Galvaneal</option>
+                          <option value="hotroll">Hot Roll</option>
+                          <option value="colroll">Cold Roll</option>
+                          <option value="electrogalvanized">Electro Galvanized</option>
+                      </select> -->
                       <select class="selectdesign form-control ml-1">
-                          <option selected>Select you gauge</option>
+                          <option selected>Select your gauge</option>
                           <option>8</option>
                           <option>9</option>
                           <option>10</option>
@@ -46,7 +56,7 @@
                           <option>30</option>
 
                       </select>
-                      <button class="searchpro ml-1 mobile-off">
+                      <button class="searchpro ml-1 mobile-off" (click)="goToProductsPage()">
                           Search Products
                           <img class="ml-2" src="../../../../assets/images/rightarrow.png" />
                       </button>
@@ -85,12 +95,12 @@
                   </div>
               </div>
               <div class="productimg">
-                  <img class="w-100" src="../../../../assets/images/steelimg.png" />
+                  <img class="w-100" src="../../../../assets/images/product-category/Galvanized.png" />
               </div>
           </div>
 
           <div class=" ChildDiv2">
-              <img src="../../../../assets/images/hover img.png" />
+              <img src="../../../../assets/images/product-category/Galvanized.png" />
           </div>
 
           <div class="col-md-2 ClildDiv3 productcard">
@@ -102,12 +112,12 @@
                   </div>
               </div>
               <div class="productimg">
-                  <img class="w-100" src="../../../../assets/images/steelimg.png" />
+                  <img class="w-100" src="../../../../assets/images/product-category/Galvalume.png" />
               </div>
           </div>
 
           <div class=" ChildDiv4">
-              <img src="../../../../assets/images/hover img.png" />
+              <img src="../../../../assets/images/product-category/Galvalume.png" />
           </div>
 
           <div class="col-md-2 ClildDiv5 productcard">
@@ -119,12 +129,12 @@
                   </div>
               </div>
               <div class="productimg">
-                  <img class="w-100" src="../../../../assets/images/steelimg.png" />
+                  <img class="w-100" src="../../../../assets/images/product-category/galvaneneal.png" />
               </div>
           </div>
 
           <div class=" ChildDiv6">
-              <img src="../../../../assets/images/hover img.png" />
+              <img src="../../../../assets/images/product-category/galvaneneal.png" />
           </div>
 
           <div class="col-md-2 ClildDiv7 productcard">
@@ -136,12 +146,12 @@
                   </div>
               </div>
               <div class="productimg">
-                  <img class="w-100" src="../../../../assets/images/steelimg.png" />
+                  <img class="w-100" src="../../../../assets/images/product-category/Hot-roll.png" />
               </div>
           </div>
 
           <div class=" ChildDiv8">
-              <img src="../../../../assets/images/hover img.png" />
+              <img src="../../../../assets/images/product-category/Hot-roll.png" />
           </div>
 
           <div class="col-md-2 ClildDiv9 productcard">
@@ -153,12 +163,12 @@
                   </div>
               </div>
               <div class="productimg">
-                  <img class="w-100" src="../../../../assets/images/steelimg.png" />
+                  <img class="w-100" src="../../../../assets/images/product-category/cold-roll.png" />
               </div>
           </div>
 
           <div class=" ChildDiv10">
-              <img src="../../../../assets/images/hover img.png" />
+              <img src="../../../../assets/images/product-category/cold-roll.png" />
           </div>
 
           <div class="col-md-2 ClildDiv11 productcard">
@@ -170,12 +180,12 @@
                   </div>
               </div>
               <div class="productimg">
-                  <img class="w-100" src="../../../../assets/images/steelimg.png" />
+                  <img class="w-100" src="../../../../assets/images/product-category/Electro-Galvanized.png" />
               </div>
           </div>
 
           <div class=" ChildDiv12">
-              <img src="../../../../assets/images/hover img.png" />
+              <img src="../../../../assets/images/product-category/Electro-Galvanized.png" />
           </div>
       </div>
       <div class="row my-5" data-aos="fade-up" data-aos-duration="900">

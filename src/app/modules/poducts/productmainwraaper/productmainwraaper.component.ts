@@ -22,7 +22,7 @@ export class ProductmainwraaperComponent implements OnInit {
     console.log(this.router.url); //  /routename
     this.currentRoute = this.router.url;
     this.productname= this.currentRoute.split('/')[2]
-    this.productname.replace('-', '')
+    this.productname?.replace('-', '')
 }
     });
 
