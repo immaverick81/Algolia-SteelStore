@@ -12,13 +12,10 @@ export class SearchproductComponent implements OnInit {
 	ngOnInit(): void {}
 
 	goToProductsPage() {
-		console.log(this.selectedCategory);
 		this.router.navigate([ `/steel/${this.selectedCategory}` ]);
 	}
 
 	navigateToProduct(productName: string) {
 		this.router.navigate([ `/steel/${productName}` ]);
 	}
-
-
 }

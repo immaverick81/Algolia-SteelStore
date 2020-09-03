@@ -5,6 +5,7 @@ import { ContactusComponent } from './../contactus/contactus.component';
 import { FaqComponent } from '../faq/faq.component';
 import { PrivacyComponent } from '../privacy/privacy.component';
 import { RouteConstant } from '../../constants/routeConstant';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 export const PUBLIC_ROUTES: Routes = [
 	// { path: '', redirectTo: 'account', pathMatch: 'full' },
@@ -37,6 +38,10 @@ export const PUBLIC_ROUTES: Routes = [
 	{
 		path: RouteConstant.contactUs,
 		component: ContactusComponent
+	},
+	{
+		path: RouteConstant.forgotPpassword,
+		component: ForgotPasswordComponent
 	},
 	{
 		path: '',
