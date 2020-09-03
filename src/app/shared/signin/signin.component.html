@@ -12,7 +12,7 @@
     </div>
     <form class="formmm" [formGroup]="signInForm" (ngSubmit)="signIn()">
         <div class="py-2">
-            <input class="form-control" type="email" placeholder="Email address" formControlName="email" 
+            <input class="form-control" type="email" placeholder="Email address" formControlName="email"
             [ngClass]="{'border border-danger' : signInForm.get('email').touched && signInForm.get('email').invalid}" />
         </div>
         <div class="text-left" *ngIf="(signInForm.get('email').touched && signInForm.get('email').errors?.required) && !signInForm.get('email').errors?.pattern">
@@ -22,23 +22,22 @@
             <span class="text-danger">Invalid Email</span>
         </div>
         <div class="py-2">
-            <input type="password" class="form-control" placeholder="Password" formControlName="password" 
+            <input type="password" class="form-control" placeholder="Password" formControlName="password"
             [ngClass]="{'border border-danger' : signInForm.get('password').touched && signInForm.get('password').invalid}" />
         </div>
         <div class="text-left" *ngIf="signInForm.get('password').touched && signInForm.get('password').invalid">
             <span class="text-danger">Required</span>
         </div>
         <div class="d-flex justify-content-end">
-            <a class="frgt-pass"> Forgot Password?</a>
-
+            <a class="frgt-pass" routerLink="/forgot-password" (click)="closedialog()">Forgot Password?</a>
         </div>
         <div class="py-3">
             <div class="shortdes px-3">
-                By continuing, you agreeto Exos Terms of Use and consnet to Privacy Policy
+                By continuing, you agree to Exos Terms of Use and consent to Privacy Policy
             </div>
         </div>
         <div class="py-3">
-            <button type="submit" class="form-control">Sign in   
+            <button type="submit" class="form-control">Sign in
                 <img class="icon" src="../../../assets/images/contact-arrow.png " alt="">
             </button>
         </div>

@@ -8,6 +8,7 @@ import { LoginService } from './../services/login.service';
 import { SignupComponent } from '../signup/signup.component';
 import { AuthService } from '../utils/auth.service';
 import { AppRegularExpressionEnum } from '../enums/app-regular-expression.enum';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-signin',
@@ -22,11 +23,12 @@ export class SigninComponent implements OnInit {
 		private _formBuilder: FormBuilder,
 		private _authService: AuthService,
 		private loginService: LoginService,
-    private toasterService: ToastrService,
-    public dialog: MatDialog
+		private toasterService: ToastrService,
+		public dialog: MatDialog,
+		public router: Router
 	) {
-    dialogRef.disableClose = true;
-  }
+		dialogRef.disableClose = true;
+	}
 
 	ngOnInit(): void {
 		this.createForm();
@@ -34,34 +36,36 @@ export class SigninComponent implements OnInit {
 
 	createForm() {
 		this.signInForm = this._formBuilder.group({
-			email: ['', [Validators.required, Validators.pattern(AppRegularExpressionEnum.emailRegex)]],
-			password: ['',[Validators.required]]
+			email: [ '', [ Validators.required, Validators.pattern(AppRegularExpressionEnum.emailRegex) ] ],
+			password: [ '', [ Validators.required ] ]
 		});
 	}
 
 	signIn() {
-    this.signInForm.markAllAsTouched();
-    if(this.signInForm.valid) {
-      this.loginService.login(this.signInForm.get('email').value, this.signInForm.get('password').value).subscribe(
-        (data) => {
-          console.log(data);
-          let obj = {
-            email: data.data.email,
-            userName: data.data.username,
-            token: data.data.token
-          };
-		  this._authService.setSessionInfo(obj);
-          this.closedialog();
-          this.toasterService.success('Login successful');
-        },
-        (error) => {
-          this.toasterService.error('Login failed');
-        },
-        () => {
-          this.toasterService.clear();
-        }
-      );
-    }
+		this.signInForm.markAllAsTouched();
+		if (this.signInForm.valid) {
+			this.loginService
+				.login(this.signInForm.get('email').value, this.signInForm.get('password').value)
+				.subscribe(
+					(data) => {
+						console.log(data);
+						let obj = {
+							email: data.data.email,
+							userName: data.data.username,
+							token: data.data.token
+						};
+						this._authService.setSessionInfo(obj);
+						this.closedialog();
+						this.toasterService.success('Login successful');
+					},
+					(error) => {
+						this.toasterService.error('Login failed');
+					},
+					() => {
+						this.toasterService.clear();
+					}
+				);
+		}
 	}
 
 	closedialog() {
@@ -71,9 +75,9 @@ export class SigninComponent implements OnInit {
 	opensignup() {
 		this.closedialog();
 		this.openDialogSignUp();
-  }
-  
-  openDialogSignUp(): void {
+	}
+
+	openDialogSignUp(): void {
 		const dialogRef = this.dialog.open(SignupComponent, {
 			width: '600px',
 			height: '95vh',
@@ -83,5 +87,9 @@ export class SigninComponent implements OnInit {
 		dialogRef.afterClosed().subscribe((result) => {
 			console.log('The dialog was closed');
 		});
+	}
+
+	navigateToForgotPasswordPage() {
+		this.router.navigate['/steel/forgot-password'];
 	}
 }

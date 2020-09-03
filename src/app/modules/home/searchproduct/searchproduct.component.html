@@ -86,7 +86,7 @@
       </div>
       <div class="row" data-aos="fade-up" data-aos-duration="500">
 
-          <div class="col-md-2 ClildDiv1 productcard">
+          <div class="col-md-2 ClildDiv1 productcard" (click)="navigateToProduct('galvanized')">
               <div class="mb-3">
                   <span class="typetxt">Galvanized</span>
                   <div class="d-flex justify-content-between mt5">
@@ -103,7 +103,7 @@
               <img src="../../../../assets/images/product-category/Galvanized.png" />
           </div>
 
-          <div class="col-md-2 ClildDiv3 productcard">
+          <div class="col-md-2 ClildDiv3 productcard" (click)="navigateToProduct('galvalume')">
               <div class="mb-3">
                   <span class="typetxt">Galvalume</span>
                   <div class="d-flex justify-content-between mt5">
@@ -120,7 +120,7 @@
               <img src="../../../../assets/images/product-category/Galvalume.png" />
           </div>
 
-          <div class="col-md-2 ClildDiv5 productcard">
+          <div class="col-md-2 ClildDiv5 productcard" (click)="navigateToProduct('galvaneal')">
               <div class="mb-3">
                   <span class="typetxt">Galvaneneal</span>
                   <div class="d-flex justify-content-between mt5">
@@ -137,7 +137,7 @@
               <img src="../../../../assets/images/product-category/galvaneneal.png" />
           </div>
 
-          <div class="col-md-2 ClildDiv7 productcard">
+          <div class="col-md-2 ClildDiv7 productcard" (click)="navigateToProduct('hot-roll')">
               <div class="mb-3">
                   <span class="typetxt">Hot Roll</span>
                   <div class="d-flex justify-content-between mt5">
@@ -154,7 +154,7 @@
               <img src="../../../../assets/images/product-category/Hot-roll.png" />
           </div>
 
-          <div class="col-md-2 ClildDiv9 productcard">
+          <div class="col-md-2 ClildDiv9 productcard" (click)="navigateToProduct('cold-roll')">
               <div class="mb-3">
                   <span class="typetxt">Cold Roll</span>
                   <div class="d-flex justify-content-between mt5">
@@ -171,7 +171,7 @@
               <img src="../../../../assets/images/product-category/cold-roll.png" />
           </div>
 
-          <div class="col-md-2 ClildDiv11 productcard">
+          <div class="col-md-2 ClildDiv11 productcard" (click)="navigateToProduct('electro-galvanized')">
               <div class="mb-3">
                   <span class="typetxt">Electro Galvanized</span>
                   <div class="d-flex justify-content-between mt5">
@@ -190,7 +190,7 @@
       </div>
       <div class="row my-5" data-aos="fade-up" data-aos-duration="900">
           <div class="col-md-12 d-flex justify-content-center">
-              <a class="viewbtn">View All Listings
+              <a class="viewbtn" routerLink="/steel/galvanized">View All Listings
                   <img src="../../../../assets/images/color_arrow.png" />
               </a>
           </div>
