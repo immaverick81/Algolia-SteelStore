@@ -80,7 +80,7 @@ export class DetailsComponent implements OnInit {
         productName: this.data.PRODUCT
       }
       console.log(this.enquiryDetails);
-      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      this.toastr.success('Thanks for your enquiry...', 'Confirmation!');
     }
   }
 

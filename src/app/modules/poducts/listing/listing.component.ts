@@ -68,7 +68,7 @@ export class ListingComponent implements OnInit {
         console.log('The dialog was closed');
       });
     } else {
-      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      this.toastr.success('Thanks your for enquiry...', 'Confirmation!');
     }
   }
 

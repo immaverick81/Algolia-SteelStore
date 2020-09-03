@@ -41,7 +41,7 @@ export class EnquirypopUpComponent implements OnInit {
         productName : this.selectedProduct.PRODUCT
       }
       console.log(enquiryDetail);
-      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      this.toastr.success('Thanks for your enquiry...', 'Confirmation!');
     }
     
   }
