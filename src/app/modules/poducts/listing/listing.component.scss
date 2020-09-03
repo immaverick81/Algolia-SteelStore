@@ -6,3 +6,15 @@
 	justify-content: space-evenly;
 	text-align: center !important;
 }
+
+
+
+@media(min-width: 1200px){
+	.producttable{
+		.container{
+			max-width: 1308px;
+		}
+	
+	}
+
+}
