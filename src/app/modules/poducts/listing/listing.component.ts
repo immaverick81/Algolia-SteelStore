@@ -12,6 +12,8 @@ import { EnquirypopUpComponent } from 'src/app/shared/enquirypop-up/enquirypop-u
 import { AuthService } from 'src/app/shared/utils/auth.service';
 
 import { ToastrService } from 'ngx-toastr';
+import { ProductEnquiryModel } from 'src/app/shared/models/product-enquiry.model';
+import { ProductEnquiryService } from 'src/app/shared/services/product-enquiry.service';
 
 @Component({
   selector: 'app-listing',
@@ -46,7 +48,8 @@ export class ListingComponent implements OnInit {
     public router: Router,
     public dialog: MatDialog,
     private _authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _productEnquiryService: ProductEnquiryService
   ) { }
 
   getProductId = (objectID) => (objectID ? `TSS${objectID}` : 'NA');
@@ -68,13 +71,22 @@ export class ListingComponent implements OnInit {
         console.log('The dialog was closed');
       });
     } else {
-      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      let enquiryDetails: ProductEnquiryModel = {
+        name: this._authService.getSessionInfo().userName,
+        email: this._authService.getSessionInfo().email,
+        contactNumber: this._authService.getSessionInfo().contactNumber,
+        enquireProduct: product.PRODUCT,
+        productDetails: 'Coil Number :' + product.COILNUMBER + ' AND objectID: ' + product.objectID
+      }
+      this._productEnquiryService.submitEnquiry(enquiryDetails).subscribe(result => {
+        this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      });
     }
   }
 
   navigateToDetails(elements) {
     this.router.navigate(['/steel/details'], {
-      queryParams:{
+      queryParams: {
         WIDTH_IN: elements.WIDTH_IN + 1 || 'N/A',
         THICKNESS_IN: elements.THICKNESS_IN + 0.002 || 'N/A',
         LENGTH_IN: elements.LENGTH_IN || 'N/A',
@@ -109,9 +121,10 @@ export class ListingComponent implements OnInit {
         TAGNUMBER: elements.TAGNUMBER || 'N/A',
         QUALITY: elements.QUALITY || 'N/A',
         COILNUMBER: elements.COILNUMBER || 'N/A',
-        OBJECTID: elements.objectID || 'N/A',
+        objectID: elements.objectID || 'N/A',
         PRODUCT: elements.PRODUCT || 'N/A'
       }
-      , queryParamsHandling:"merge"})
+      , queryParamsHandling: "merge"
+    })
   }
 }

@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EnquirypopUpComponent } from 'src/app/shared/enquirypop-up/enquirypop-up.component';
 import { ToastrService } from 'ngx-toastr';
 import { ProductEnquiryModel } from 'src/app/shared/models/product-enquiry.model';
+import { ProductEnquiryService } from 'src/app/shared/services/product-enquiry.service';
 
 @Component({
   selector: 'app-details',
@@ -13,15 +14,6 @@ import { ProductEnquiryModel } from 'src/app/shared/models/product-enquiry.model
 })
 export class DetailsComponent implements OnInit {
   data: any;
-
-  public enquiryDetails: ProductEnquiryModel = {
-    userName: '',
-    email: '',
-    contactNumber: null,
-    coilNumber: null,
-    objectID: null,
-    productName: ''
-  };
 
   productDescriptionList = {
     hotRoll:
@@ -35,7 +27,8 @@ export class DetailsComponent implements OnInit {
   };
   productDescription: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private _authService: AuthService, public dialog: MatDialog, private toastr: ToastrService) { }
+  constructor(private activatedRoute: ActivatedRoute, private _authService: AuthService, public dialog: MatDialog, 
+    private toastr: ToastrService, private _productEnquiryService: ProductEnquiryService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -71,23 +64,23 @@ export class DetailsComponent implements OnInit {
       this.openEnquiryDailog();
     }
     else {
-      this.enquiryDetails = {
-        userName: this._authService.getSessionInfo().userName,
-        email: this._authService.getSessionInfo().emil,
+      let enquiryDetails: ProductEnquiryModel = {
+        name: this._authService.getSessionInfo().userName,
+        email: this._authService.getSessionInfo().email,
         contactNumber: this._authService.getSessionInfo().contactNumber,
-        coilNumber: this.data.COILNUMBER,
-        objectID: this.data.OBJECTID,
-        productName: this.data.PRODUCT
+        enquireProduct: this.data.PRODUCT,
+        productDetails: 'Coil Number :'+this.data.COILNUMBER+' AND objectID: '+ this.data.objectID
       }
-      console.log(this.enquiryDetails);
-      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      this._productEnquiryService.submitEnquiry(enquiryDetails).subscribe(result => {
+        this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      });
     }
   }
 
   openEnquiryDailog(): void {
     const dialogRef = this.dialog.open(EnquirypopUpComponent, {
       height: '95vh',
-
+      data: this.data
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

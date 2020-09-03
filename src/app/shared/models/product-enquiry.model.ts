@@ -1,8 +1,7 @@
 export class ProductEnquiryModel {
-    userName: string;
     email: string;
-    contactNumber: number;
-    coilNumber: number;
-    objectID: number;
-    productName: string;
+    name: string;
+    contactNumber: string;
+    enquireProduct: string;
+    productDetails: string;
 }

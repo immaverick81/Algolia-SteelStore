@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductEnquiryModel } from '../models/product-enquiry.model';
 import { AppRegularExpressionEnum } from '../enums/app-regular-expression.enum';
 import { ToastrService } from 'ngx-toastr';
+import { ProductEnquiryService } from '../services/product-enquiry.service';
 
 @Component({
   selector: 'app-enquirypop-up',
@@ -13,7 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 export class EnquirypopUpComponent implements OnInit {
   enquiryForm: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<EnquirypopUpComponent>, @Inject(MAT_DIALOG_DATA) public selectedProduct, private _formBuilder: FormBuilder, private toastr: ToastrService ) { 
+  constructor(public dialogRef: MatDialogRef<EnquirypopUpComponent>, @Inject(MAT_DIALOG_DATA) public selectedProduct, 
+  private _formBuilder: FormBuilder, private toastr: ToastrService, private _productEnquiryService: ProductEnquiryService ) { 
     dialogRef.disableClose = true;
   }
   
@@ -32,16 +34,18 @@ export class EnquirypopUpComponent implements OnInit {
   submitEnquiry(){
     this.enquiryForm.markAllAsTouched();
     if(this.enquiryForm.valid) {
-      let enquiryDetail: ProductEnquiryModel = {
-        userName: this.enquiryForm.get('name').value,
+      console.log(this.selectedProduct)
+      let enquiryDetails: ProductEnquiryModel = {
+        name: this.enquiryForm.get('name').value,
         email : this.enquiryForm.get('email').value,
         contactNumber: this.enquiryForm.get('contactNumber').value,
-        coilNumber : this.selectedProduct.COILNUMBER,
-        objectID : this.selectedProduct.OBJECTID,
-        productName : this.selectedProduct.PRODUCT
+        enquireProduct: this.selectedProduct.PRODUCT,
+        productDetails: 'Coil Number :'+this.selectedProduct.COILNUMBER+' AND objectID: '+ this.selectedProduct.objectID
       }
-      console.log(enquiryDetail);
-      this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      this._productEnquiryService.submitEnquiry(enquiryDetails).subscribe(result => {
+        this.closedialog();
+        this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      });
     }
     
   }
