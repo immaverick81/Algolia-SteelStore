@@ -15,4 +15,10 @@ export class SearchproductComponent implements OnInit {
 		console.log(this.selectedCategory);
 		this.router.navigate([ `/steel/${this.selectedCategory}` ]);
 	}
+
+	navigateToProduct(productName: string) {
+		this.router.navigate([ `/steel/${productName}` ]);
+	}
+
+
 }

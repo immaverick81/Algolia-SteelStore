@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/shared/utils/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProductEnquiryModel } from 'src/app/shared/models/product-enquiry.model';
 import { ProductEnquiryService } from 'src/app/shared/services/product-enquiry.service';
+import { SigninComponent } from 'src/app/shared/signin/signin.component';
 
 @Component({
   selector: 'app-listing',
@@ -77,6 +78,30 @@ export class ListingComponent implements OnInit {
         contactNumber: this._authService.getSessionInfo().contactNumber,
         enquireProduct: product.PRODUCT,
         productDetails: 'Coil Number :' + product.COILNUMBER + ' AND objectID: ' + product.objectID
+      }
+      this._productEnquiryService.submitEnquiry(enquiryDetails).subscribe(result => {
+        this.toastr.success('Thanks for enquiry...', 'Confirmation!');
+      });
+    }
+  }
+
+  makeAnOffer(product) {
+    if (this._authService.getSessionInfo() == undefined) {
+      const dialogRef = this.dialog.open(SigninComponent, {
+        height: '95vh',
+        data: product,
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('sign up dailog closed')
+      });
+    }
+    else {
+      let enquiryDetails: ProductEnquiryModel = {
+        name: this._authService.getSessionInfo().userName,
+        email: this._authService.getSessionInfo().email,
+        contactNumber: this._authService.getSessionInfo().contactNumber,
+        enquireProduct: product.PRODUCT,
+        productDetails: 'Coil Number :' + product.COILNUMBER + ' AND objectID: ' + product.objectID + 'AND Offer: Offer Applied'
       }
       this._productEnquiryService.submitEnquiry(enquiryDetails).subscribe(result => {
         this.toastr.success('Thanks for enquiry...', 'Confirmation!');
