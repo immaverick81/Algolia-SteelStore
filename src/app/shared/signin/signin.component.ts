@@ -59,7 +59,7 @@ export class SigninComponent implements OnInit {
 						this.toasterService.success('Login successful');
 					},
 					(error) => {
-						this.toasterService.error('Login failed');
+						this.toasterService.error('Invalid username or password');
 					},
 					() => {
 						this.toasterService.clear();
