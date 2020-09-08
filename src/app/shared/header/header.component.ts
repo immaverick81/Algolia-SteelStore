@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SigninComponent } from '../signin/signin.component';
 import { SignupComponent } from './../signup/signup.component';
 import { AuthService } from '../utils/auth.service';
+import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 @Component({
 	selector: 'app-header',
@@ -66,5 +67,17 @@ export class HeaderComponent implements OnInit {
 
 	signOut() {
 		this._authService.removeSession();
+	}
+
+	openDialogFileUpload() {
+		const dialogRef = this.dialog.open(FileUploadComponent, {
+			height: '93vh',
+			width: '600px',
+			data: {}
+		});
+
+		dialogRef.afterClosed().subscribe((result) => {
+			console.log('The dialog was closed');
+		});
 	}
 }

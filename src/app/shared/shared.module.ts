@@ -18,6 +18,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 		PrivacyComponent,
 		ContactusComponent,
 		EnquirypopUpComponent,
-		ForgotPasswordComponent
+		ForgotPasswordComponent,
+		FileUploadComponent
 	],
 	imports: [ CommonModule, SharedRoutingModule, MatExpansionModule, MatDialogModule, ReactiveFormsModule, FormsModule ],
 	exports: [ ContactusComponent ]
