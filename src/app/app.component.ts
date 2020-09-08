@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 			filter((e) => e instanceof NavigationEnd)
 		  );
 		  navEndEvent$.subscribe((e: NavigationEnd) => {
-			gtag("config", "'UA-176905807-1", { page_path: e.urlAfterRedirects });
+			gtag("config", "UA-176823165-1", { page_path: e.urlAfterRedirects });
 		  });
 	}
 

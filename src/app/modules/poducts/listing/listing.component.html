@@ -34,13 +34,13 @@
               <td (click)="navigateToDetails(elements)">{{ elements.COILNUMBER || "N/A" }}</td>
               <td>Price</td>
 
-              <td class="d-flex align-items-center">
-                <div class="enquiry-btn">
+              <td class="d-flex" style="max-width: 300px;">
+                <div class="enquiry-btn py-2">
                   <button class="btn" (click)="openDialogenquiry(elements)">Enquiry</button>
               
 
                 </div>
-                <div class="make-offer ml-2">
+                <div class="make-offer py-2">
                   <button class="btn " (click)="makeAnOffer(elements)">Make An Offer</button>
                 </div>
               </td>
