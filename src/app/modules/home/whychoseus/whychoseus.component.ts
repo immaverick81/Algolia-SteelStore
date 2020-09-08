@@ -61,7 +61,7 @@ export class WhychoseusComponent implements OnInit {
 		{
 			imgsrc: '../../../../assets/images/services.png',
 			heading: 'Service',
-			des: 'Under promise. Over deliver.'
+			des: 'Under promise. Over deliver'
 		}
 	];
 }
