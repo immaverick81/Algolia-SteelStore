@@ -78,6 +78,11 @@
     }
     .blog-head {
         position: relative;
+        height: 250px;
+        img{
+            width: 100%;
+            height: 100%!important;
+        }
         .date {
             position: absolute;
             top: 10px;
