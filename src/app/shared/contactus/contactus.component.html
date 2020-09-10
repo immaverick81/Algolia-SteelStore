@@ -1,36 +1,63 @@
 <section class="py-5 " id="cotactus" data-aos="fade-up" data-aos-duration="950">
-  <div class="container mt-5 contactus ">
-      <div class="row">
-          <div class="col-md-6"></div>
-          <div class="col-md-6" data-aos="zoom-in-up" data-aos-duration="1500" >
-              <div class="contactform text-white pb-sm-5">
-                  <form class="p-sm-5">
-                      <div>
-                          <h3>Contact Us</h3>
-                          <p>
-                              Please submit your information below and We will be in touch with you shortly to set up a live demo.
-                          </p>
-                      </div>
-                      <div class="my-2">
-                          <input type="text" placeholder="Name" class="form-control" />
-                      </div>
-                      <div class="my-2">
-                          <input type="text" placeholder="Email" class="form-control" />
-                      </div>
-                      <div class="my-2">
-                          <input type="text" placeholder="Phone Number" class="form-control" />
-                      </div>
-                      <div class="my-2">
-                          <textarea name="" placeholder="Reason for Contacting" class="form-control" cols="3" rows="3"></textarea>
-                      </div>
-                      <div class="my-2">
-                          <button class="btn-submit form-control">Submit
-                    <img src="../../../assets/images/contact-button.png" alt="icon"/>
-                </button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="container mt-5 contactus ">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6" data-aos="zoom-in-up" data-aos-duration="1500">
+                <div class="contactform text-white pb-sm-5">
+                    <form class="p-sm-5" [formGroup]="contactUsForm">
+                        <div>
+                            <h3>Contact Us</h3>
+                            <p>
+                                Please submit your information below and We will be in touch with you shortly to set up
+                                a live demo.
+                            </p>
+                        </div>
+                        <div class="my-2">
+                            <input type="text" placeholder="Name" class="form-control" formControlName="name"
+                                [ngClass]="{'border border-danger' : contactUsForm.get('name').touched && contactUsForm.get('name').invalid}" />
+                        </div>
+                        <div class="text-left"
+                            *ngIf="contactUsForm.get('name').touched && contactUsForm.get('name').errors?.required">
+                            <span class="text-danger">Required</span>
+                        </div>
+                        <div class="my-2">
+                            <input type="text" placeholder="Email" class="form-control" formControlName="email"
+                                [ngClass]="{'border border-danger' : contactUsForm.get('email').touched && contactUsForm.get('email').invalid}" />
+                        </div>
+                        <div class="text-left"
+                            *ngIf="(contactUsForm.get('email').touched && contactUsForm.get('email').errors?.required) && !contactUsForm.get('email').errors?.pattern">
+                            <span class="text-danger">Required</span>
+                        </div>
+                        <div class="text-left"
+                            *ngIf="!contactUsForm.get('email').errors?.required && contactUsForm.get('email').errors?.pattern">
+                            <span class="text-danger">Invalid Email</span>
+                        </div>
+                        <div class="my-2">
+                            <input type="text" placeholder="Phone Number" class="form-control"
+                                formControlName="contactNumber"
+                                [ngClass]="{'border border-danger' : contactUsForm.get('contactNumber').touched && contactUsForm.get('contactNumber').invalid}" />
+                        </div>
+                        <div class="text-left"
+                            *ngIf="contactUsForm.get('contactNumber').touched && contactUsForm.get('contactNumber').errors?.required">
+                            <span class="text-danger">Required</span>
+                        </div>
+                        <div class="my-2">
+                            <textarea name="" placeholder="Reason for Contacting" class="form-control" cols="4"
+                                rows="4" formControlName="reasonOfContact"
+                                [ngClass]="{'border border-danger' : contactUsForm.get('reasonOfContact').touched && contactUsForm.get('reasonOfContact').invalid}"></textarea>
+                        </div>
+                        <div class="text-left"
+                            *ngIf="contactUsForm.get('reasonOfContact').touched && contactUsForm.get('reasonOfContact').errors?.required">
+                            <span class="text-danger">Required</span>
+                        </div>
+                        <div class="my-2">
+                            <button class="btn-submit form-control" (click)="submitForm()">Submit
+                                <img src="../../../assets/images/contact-button.png" alt="icon" />
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
