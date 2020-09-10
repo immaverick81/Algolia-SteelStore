@@ -182,15 +182,13 @@
 	.productcard {
 		margin-top: 10px;
 	}
-	.productimg {
-		img {
-			height: 244px;
-			object-fit: cover !important;
-		}
-	}
-	.looking {
-		.viewbtn {
-			font-size: 14px;
-		}
+	
+}
+
+
+.productimg{
+	img {
+		width: 100%!important;
+		object-fit: unset!important;
 	}
 }

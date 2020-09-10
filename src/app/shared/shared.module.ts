@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
 	declarations: [
@@ -36,7 +37,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 		ForgotPasswordComponent,
 		FileUploadComponent
 	],
-	imports: [ CommonModule, SharedRoutingModule, MatExpansionModule, MatDialogModule, ReactiveFormsModule, FormsModule ],
+	imports: [ CommonModule, 		MatSelectModule,
+		SharedRoutingModule, MatExpansionModule, MatDialogModule, ReactiveFormsModule, FormsModule ],
 	exports: [ ContactusComponent ]
 })
 export class SharedModule {}

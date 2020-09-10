@@ -21,6 +21,17 @@
         <div class="py-2">
             <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" />
         </div>
+        <div class="py-2">
+            <select class="form-control">
+              <option>Buyers</option>
+              <option>Suppliers</option>
+  
+            </select>
+          </div>
+          <div class="py-2">
+              <input class="form-control" type="text" placeholder="Company Name" 
+             />
+          </div>
         
         <div class="py-2">
             <input type="email" class="form-control" placeholder="Email Address" formControlName="email" 
@@ -39,6 +50,7 @@
         <div class="text-left" *ngIf="isControlIsInValid('phoneNumber')">
             <span class="text-danger">Required</span>
         </div>
+    
 
         <div class="py-2">
             <input type="password" class="form-control" placeholder="Password" formControlName="password"
@@ -60,7 +72,7 @@
         </div>
         <div class="py-3">
             <div class="shortdes px-3">
-                By continuing, you agree to Exos Terms of Use and consent to ts Privacy Policy
+                By continuing, you agree to Exos <a (click)="closedialog()" routerLink="/terms">Terms of Use</a> and consent to ts <a  (click)="closedialog()" routerLink="/privacy-policy">Privacy Policy</a> 
             </div>
         </div>
         <div class="py-3">

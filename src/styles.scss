@@ -230,7 +230,7 @@ body {
     color: #1c1c1c;
   }
   .formmm {
-    input {
+    input,select {
       height: 50px;
       border-radius: 10px;
       border: solid 1px #bcbcbc;
@@ -264,3 +264,44 @@ body {
 
 
 //blog page detail css
+
+
+// ------------ Custom Scrolbar
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #04a9f4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #04a9f4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+// -------------- Custom Scrollbar
+
+
+
+.owl-carousel .owl-item img{
+	width: unset!important
+}
+
+.productimg{
+  img{
+    width: 100%!important;
+    height: 330px;
+
+  }
+}
+.productcard{
+  padding: 13px;
+}
